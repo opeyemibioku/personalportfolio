@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import ope from "../assets/images/ope.png";
 
 import project from "../assets/images/projects/project.jpg";
@@ -5,19 +6,33 @@ import project from "../assets/images/projects/project.jpg";
 const Home = () => {
   return (
     <>
+      {/* <Navbar /> */}
       <Hero />
       <TechStacks />
       <MyProjects />
       <Experience />
+      <Footer />
     </>
   );
 };
 
+const Navbar = () => {
+  return (
+    <>
+      <div className="container-fluid" style={{ backgroundColor: "#222A35" }}>
+        <div className="d-flex">
+          <h5 className="mt-4 text-white">Opeyemi Bioku</h5>
+        </div>
+      </div>
+    </>
+  );
+};
 const Hero = () => {
   return (
     <div className="container-fluid" style={{ backgroundColor: "#222A35" }}>
+      <h5 className="pt-5 ps-3 text-white">Opeyemi Bioku</h5>
       <div className="row align-items-center justify-content-center px-4 pt-5">
-        <div className="col-lg-2 col-md-1 col-sm-12 pt-3">
+        <div className="col-lg-2 col-md-1 pt-3 d-none d-lg-block d-md-block d-sm-none d-xs-none">
           <div className="my-3">
             <a href="https://github.com/opeyemibioku">
               <i className="bi bi-github text-light" target="_blank"></i>
@@ -27,12 +42,29 @@ const Hero = () => {
             <a href="https://www.linkedin.com/in/opeyemi-bioku" target="_blank">
               <i className="bi bi-linkedin text-light"></i>
             </a>
+          </div>{" "}
+          <div className="my-3">
+            <a href="mailto:opeyemibioku@gmail.com">
+              <i className="bi bi-envelope text-light" target="_blank"></i>
+            </a>
           </div>
           <div className="my-3">
             <a href="">
               <i className="bi bi-instagram text-light" target="_blank"></i>
             </a>
           </div>
+        </div>
+        <div className="d-xs-block d-sm-block d-md-none d-lg-none">
+          <a href="https://github.com/opeyemibioku">
+            <i className="bi bi-github text-light mx-2" target="_blank"></i>
+          </a>
+
+          <a href="https://www.linkedin.com/in/opeyemi-bioku" target="_blank">
+            <i className="bi bi-linkedin text-light mx-2"></i>
+          </a>
+          <a href="">
+            <i className="bi bi-instagram text-light mx-2" target="_blank"></i>
+          </a>
         </div>
         <div className="col-lg-5 col-md-7 col-sm-12 pt-3">
           <h1 className=" d-none d-lg-block d-md-none d-sm-none d-xs-none text-light">
@@ -400,112 +432,497 @@ const TechStacks = () => {
   );
 };
 
+// const Buttons = () => {
+//   const [active, setActive] = useState("firstButton");
+//   return (
+//     <>
+//       <div className="text-center mt-5">
+//         <h3> OUR PRICE RANGE </h3>
+//         <div className="mx-3">
+//           <button
+//             onClick={() => setActive("firstButton")}
+//             className="DailyandWeekendBundleBtn mx-2 mt-3"
+//           >
+//             Project 1
+//           </button>
+
+//           {/* </button> */}
+//           <button
+//             onClick={() => setActive("secondButton")}
+//             className="MeetingRoomBundleBtn mx-2 mt-3"
+//           >
+//             Project 2
+//           </button>
+//           <button
+//             onClick={() => setActive("thirdButton")}
+//             className="MeetingRoomBundleBtn mx-2 mt-3"
+//           >
+//             Project 3
+//           </button>
+
+//           {/* </button> */}
+//         </div>
+//       </div>{" "}
+//       <div className="text-center mt-3">
+//         {active === "firstButton" && <h2>1</h2>}
+//         {active === "secondButton" && <h2>2</h2>}
+//         {active === "thirdButton" && <h2>3</h2>}
+//       </div>
+//     </>
+//   );
+// };
+
 const MyProjects = () => {
+  const [active, setActive] = useState("firstButton");
   return (
     <div
-      className="container-fluid px-5 pb-3 SectionTwoBg mt-5"
+      className="container-fluid px-5 pb-3 SectionTwoBg pt-5"
       style={{ backgroundColor: "#222A35" }}
     >
       {" "}
-      <h4 className="text-center">My Projects</h4>
-      <div className="row justify-content-evenly">
-        <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
-          <div className="mb-5 py-4 cardBg">
-            <div className="">
-              <img
-                src={project}
-                className="img-fluid"
-                style={{ borderRadius: "10px" }}
-              />
-            </div>
-            <div className="card-body mt-3">
-              <h4 className="card-title text-white">Title</h4>
-              <div className="d-flex mt-2">
-                {" "}
-                <p className="card-text text-white">React</p>
-                <p className="card-text ms-3 text-white">Node</p>
-                <p className="card-text ms-3 text-white">Node</p>
-                <p className="card-text ms-3 text-white">Node</p>
-                {/* <p className="card-text mt-2">
-                  React Node Express React Node Express
-                </p> */}
+      <h4 className="text-center text-white">My Projects</h4>
+      <div className="text-center mt-5">
+        <div className="mx-3">
+          <button
+            onClick={() => setActive("firstButton")}
+            className="DailyandWeekendBundleBtn mx-2 mt-3"
+            style={{
+              border: "1px solid #3BAFCA",
+              backgroundColor: "#1B232E",
+              borderRadius: "10px",
+              width: "9rem",
+              height: "2.5rem",
+              color: "#ffffff",
+              fontFamily: "Rubik",
+              fontStyle: "normal",
+              fontWeight: "500",
+              fontSize: "1.05rem",
+            }}
+          >
+            Project 1
+          </button>
+
+          {/* </button> */}
+          <button
+            onClick={() => setActive("secondButton")}
+            className="MeetingRoomBundleBtn mx-2 mt-3"
+            style={{
+              border: "1px solid #3BAFCA",
+              backgroundColor: "#1B232E",
+              borderRadius: "10px",
+              width: "9rem",
+              height: "2.5rem",
+              color: "#ffffff",
+              fontFamily: "Rubik",
+              fontStyle: "normal",
+              fontWeight: "500",
+              fontSize: "1.05rem",
+            }}
+          >
+            Project 2
+          </button>
+          <button
+            onClick={() => setActive("thirdButton")}
+            className="MeetingRoomBundleBtn mx-2 mt-3"
+            style={{
+              border: "1px solid #3BAFCA",
+              backgroundColor: "#1B232E",
+              borderRadius: "10px",
+              width: "9rem",
+              height: "2.5rem",
+              color: "#ffffff",
+              fontFamily: "Rubik",
+              fontStyle: "normal",
+              fontWeight: "500",
+              fontSize: "1.05rem",
+              "&:hover": {
+                backgroundColor: "#3BAFCA",
+                color: "#0000000",
+              },
+            }}
+          >
+            Project 3
+          </button>
+
+          {/* </button> */}
+        </div>
+      </div>{" "}
+      <div className="text-center mt-3">
+        {active === "firstButton" && (
+          <h2>
+            {" "}
+            <div className="row justify-content-evenly">
+              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
+                <div className="mb-5 py-4 cardBg">
+                  <div className="">
+                    <img
+                      src={project}
+                      className="img-fluid"
+                      style={{ borderRadius: "10px" }}
+                    />
+                  </div>
+                  <div className="card-body mt-3">
+                    <h4 className="card-title text-white">Title</h4>
+                    <div className="d-flex mt-2">
+                      {" "}
+                      <p className="card-text text-white">React</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between mt-3">
+                    <a href="">
+                      <p>Project Link</p>
+                    </a>
+                    <a href="">
+                      <p>GitHub Link</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
+                <div className="mb-5 py-4 cardBg">
+                  <div className="">
+                    <img
+                      src={project}
+                      className="img-fluid"
+                      style={{ borderRadius: "10px" }}
+                    />
+                  </div>
+                  <div className="card-body mt-3">
+                    <h4 className="card-title text-white">Title</h4>
+                    <div className="d-flex mt-2">
+                      {" "}
+                      <p className="card-text text-white">React</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between mt-3">
+                    <a href="">
+                      <p>Project Link</p>
+                    </a>
+                    <a href="">
+                      <p>GitHub Link</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
+                <div className="mb-5 py-4 cardBg">
+                  <div className="">
+                    <img
+                      src={project}
+                      className="img-fluid"
+                      style={{ borderRadius: "10px" }}
+                    />
+                  </div>
+                  <div className="card-body mt-3">
+                    <h4 className="card-title text-white">Title</h4>
+                    <div className="d-flex mt-2">
+                      {" "}
+                      <p className="card-text text-white">React</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between mt-3">
+                    <a href="">
+                      <p>Project Link</p>
+                    </a>
+                    <a href="">
+                      <p>GitHub Link</p>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="d-flex justify-content-between mt-3">
-              <a href="">
-                <p>Project Link</p>
-              </a>
-              <a href="">
-                <p>GitHub Link</p>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
-          <div className="mb-5 py-4 cardBg">
-            <div className="">
-              <img
-                src={project}
-                className="img-fluid"
-                style={{ borderRadius: "10px" }}
-              />
-            </div>
-            <div className="card-body mt-3">
-              <h4 className="card-title text-white">Title</h4>
-              <div className="d-flex mt-2">
-                {" "}
-                <p className="card-text text-white">React</p>
-                <p className="card-text ms-3 text-white">Node</p>
-                <p className="card-text ms-3 text-white">Node</p>
-                <p className="card-text ms-3 text-white">Node</p>
-                {/* <p className="card-text mt-2">
-                  React Node Express React Node Express
-                </p> */}
+          </h2>
+        )}
+        {active === "secondButton" && (
+          <h2>
+            {" "}
+            <div className="row justify-content-evenly">
+              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
+                <div className="mb-5 py-4 cardBg">
+                  <div className="">
+                    <img
+                      src={project}
+                      className="img-fluid"
+                      style={{ borderRadius: "10px" }}
+                    />
+                  </div>
+                  <div className="card-body mt-3">
+                    <h4 className="card-title text-white">Title 2</h4>
+                    <div className="d-flex mt-2">
+                      {" "}
+                      <p className="card-text text-white">React</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between mt-3">
+                    <a href="">
+                      <p>Project Link</p>
+                    </a>
+                    <a href="">
+                      <p>GitHub Link</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
+                <div className="mb-5 py-4 cardBg">
+                  <div className="">
+                    <img
+                      src={project}
+                      className="img-fluid"
+                      style={{ borderRadius: "10px" }}
+                    />
+                  </div>
+                  <div className="card-body mt-3">
+                    <h4 className="card-title text-white">Title</h4>
+                    <div className="d-flex mt-2">
+                      {" "}
+                      <p className="card-text text-white">React</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between mt-3">
+                    <a href="">
+                      <p>Project Link</p>
+                    </a>
+                    <a href="">
+                      <p>GitHub Link</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
+                <div className="mb-5 py-4 cardBg">
+                  <div className="">
+                    <img
+                      src={project}
+                      className="img-fluid"
+                      style={{ borderRadius: "10px" }}
+                    />
+                  </div>
+                  <div className="card-body mt-3">
+                    <h4 className="card-title text-white">Title</h4>
+                    <div className="d-flex mt-2">
+                      {" "}
+                      <p className="card-text text-white">React</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between mt-3">
+                    <a href="">
+                      <p>Project Link</p>
+                    </a>
+                    <a href="">
+                      <p>GitHub Link</p>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="d-flex justify-content-between mt-3">
-              <a href="">
-                <p>Project Link</p>
-              </a>
-              <a href="">
-                <p>GitHub Link</p>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
-          <div className="mb-5 py-4 cardBg">
-            <div className="">
-              <img
-                src={project}
-                className="img-fluid"
-                style={{ borderRadius: "10px" }}
-              />
-            </div>
-            <div className="card-body mt-3">
-              <h4 className="card-title text-white">Title</h4>
-              <div className="d-flex mt-2">
-                {" "}
-                <p className="card-text text-white">React</p>
-                <p className="card-text ms-3 text-white">Node</p>
-                <p className="card-text ms-3 text-white">Node</p>
-                <p className="card-text ms-3 text-white">Node</p>
-                {/* <p className="card-text mt-2">
-                  React Node Express React Node Express
-                </p> */}
+          </h2>
+        )}
+        {active === "thirdButton" && (
+          <h2>
+            {" "}
+            <div className="row justify-content-evenly">
+              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
+                <div className="mb-5 py-4 cardBg">
+                  <div className="">
+                    <img
+                      src={project}
+                      className="img-fluid"
+                      style={{ borderRadius: "10px" }}
+                    />
+                  </div>
+                  <div className="card-body mt-3">
+                    <h4 className="card-title text-white">Title 3</h4>
+                    <div className="d-flex mt-2">
+                      {" "}
+                      <p className="card-text text-white">React</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between mt-3">
+                    <a href="">
+                      <p>Project Link</p>
+                    </a>
+                    <a href="">
+                      <p>GitHub Link</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
+                <div className="mb-5 py-4 cardBg">
+                  <div className="">
+                    <img
+                      src={project}
+                      className="img-fluid"
+                      style={{ borderRadius: "10px" }}
+                    />
+                  </div>
+                  <div className="card-body mt-3">
+                    <h4 className="card-title text-white">Title</h4>
+                    <div className="d-flex mt-2">
+                      {" "}
+                      <p className="card-text text-white">React</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between mt-3">
+                    <a href="">
+                      <p>Project Link</p>
+                    </a>
+                    <a href="">
+                      <p>GitHub Link</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
+                <div className="mb-5 py-4 cardBg">
+                  <div className="">
+                    <img
+                      src={project}
+                      className="img-fluid"
+                      style={{ borderRadius: "10px" }}
+                    />
+                  </div>
+                  <div className="card-body mt-3">
+                    <h4 className="card-title text-white">Title</h4>
+                    <div className="d-flex mt-2">
+                      {" "}
+                      <p className="card-text text-white">React</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                      <p className="card-text ms-3 text-white">Node</p>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between mt-3">
+                    <a href="">
+                      <p>Project Link</p>
+                    </a>
+                    <a href="">
+                      <p>GitHub Link</p>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="d-flex justify-content-between mt-3">
-              <a href="">
-                <p>Project Link</p>
-              </a>
-              <a href="">
-                <p>GitHub Link</p>
-              </a>
-            </div>
-          </div>
-        </div>
+          </h2>
+        )}
       </div>
+      {/* <div className="row justify-content-evenly">
+        <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
+          <div className="mb-5 py-4 cardBg">
+            <div className="">
+              <img
+                src={project}
+                className="img-fluid"
+                style={{ borderRadius: "10px" }}
+              />
+            </div>
+            <div className="card-body mt-3">
+              <h4 className="card-title text-white">Title</h4>
+              <div className="d-flex mt-2">
+                {" "}
+                <p className="card-text text-white">React</p>
+                <p className="card-text ms-3 text-white">Node</p>
+                <p className="card-text ms-3 text-white">Node</p>
+                <p className="card-text ms-3 text-white">Node</p>
+                
+              </div>
+            </div>
+            <div className="d-flex justify-content-between mt-3">
+              <a href="">
+                <p>Project Link</p>
+              </a>
+              <a href="">
+                <p>GitHub Link</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
+          <div className="mb-5 py-4 cardBg">
+            <div className="">
+              <img
+                src={project}
+                className="img-fluid"
+                style={{ borderRadius: "10px" }}
+              />
+            </div>
+            <div className="card-body mt-3">
+              <h4 className="card-title text-white">Title</h4>
+              <div className="d-flex mt-2">
+                {" "}
+                <p className="card-text text-white">React</p>
+                <p className="card-text ms-3 text-white">Node</p>
+                <p className="card-text ms-3 text-white">Node</p>
+                <p className="card-text ms-3 text-white">Node</p>
+        
+              </div>
+            </div>
+            <div className="d-flex justify-content-between mt-3">
+              <a href="">
+                <p>Project Link</p>
+              </a>
+              <a href="">
+                <p>GitHub Link</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
+          <div className="mb-5 py-4 cardBg">
+            <div className="">
+              <img
+                src={project}
+                className="img-fluid"
+                style={{ borderRadius: "10px" }}
+              />
+            </div>
+            <div className="card-body mt-3">
+              <h4 className="card-title text-white">Title</h4>
+              <div className="d-flex mt-2">
+                {" "}
+                <p className="card-text text-white">React</p>
+                <p className="card-text ms-3 text-white">Node</p>
+                <p className="card-text ms-3 text-white">Node</p>
+                <p className="card-text ms-3 text-white">Node</p>
+                
+              </div>
+            </div>
+            <div className="d-flex justify-content-between mt-3">
+              <a href="">
+                <p>Project Link</p>
+              </a>
+              <a href="">
+                <p>GitHub Link</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div> */}
     </div>
   );
 };
@@ -514,7 +931,7 @@ const Experience = () => {
   return (
     <>
       <div
-        className="container-fluid pt-5"
+        className="container-fluid py-5"
         style={{ backgroundColor: "#1B232E" }}
       >
         <div
@@ -523,17 +940,13 @@ const Experience = () => {
         >
           <div className="col-lg-4 d-flex justify-content-center">
             <div className="card-body">
-              <h4 className="card-title text-white">EXPERIENCE</h4>
-              <p className="card-text experience-header mt-3 text-white">
-                (8thGear Partners Limited, Lagos, Nigeria.)
+              <h4 className="card-title text-white">Experience</h4>
+              <p className="card-text experience-header mt-3 text-white ">
+                Stutern, Lagos, Nigeria.
               </p>
-              <p className="card-text experience-text text-white">
-                April 2021 - Present
+              <p className="card-text experience-text text-white m-0 p-0">
+                Backend Developer, February 2023 - Present
               </p>
-              <p className="card-text experience-text text-white">
-                Frontend Developer
-              </p>
-              <p className="card-text experience-text text-white">Role</p>
               <ul className="list-group list-group-flush experience-sub-text">
                 <li className="ms-5 text-white">
                   Develop and maintain functional and interactive user interface
@@ -543,13 +956,21 @@ const Experience = () => {
                   Work closely with designers and developers to meet project
                   requirements, fix bugs, and implement new features.
                 </li>
-                <li className="ms-5 pt-1 text-white">
-                  Manage and update existing web apps and websites to improve
-                  user experience and web functionality.
+              </ul>
+              <p className="card-text experience-header mt-3 text-white">
+                8thGear Partners Limited, Lagos, Nigeria.
+              </p>
+              <p className="card-text experience-text text-white m-0 p-0">
+                Frontend Developer, April 2021 - Present
+              </p>
+              <ul className="list-group list-group-flush experience-sub-text">
+                <li className="ms-5 text-white">
+                  Develop and maintain functional and interactive user interface
+                  using frontend technologies.
                 </li>
                 <li className="ms-5 pt-1 text-white">
-                  Optimize web apps and websites performance using modern web
-                  standards and design.
+                  Work closely with designers and developers to meet project
+                  requirements, fix bugs, and implement new features.
                 </li>
               </ul>
             </div>
@@ -563,8 +984,14 @@ const Experience = () => {
           <div className="col-lg-4 d-flex justify-content-center">
             <div className="card-body">
               <h4 className="card-title experience-text text-white">
-                EDUCATION
+                Education
               </h4>
+              <p className="card-text experience-header mt-3 text-white">
+                8thGear Partners Limited, Lagos, Nigeria.
+              </p>
+              <p className="card-text experience-text text-white m-0 p-0">
+                Frontend Developer, April 2021 - Present
+              </p>
               <ul className="list-group list-group-flush experience-sub-text">
                 <li className="ms-5 text-white">
                   B.Tech Science Laboratory Technology, LAUTECH (2019).
@@ -586,89 +1013,43 @@ const Experience = () => {
     </>
   );
 };
+const Footer = () => {
+  return (
+    <>
+      <div
+        className="container-fluid pt-5 px-5"
+        style={{ backgroundColor: "#222A35" }}
+        // style={{ backgroundColor: "#1B232E" }}
+      >
+        <div className="d-flex justify-content-between">
+          {" "}
+          <div>
+            <a
+              href="mailto:opeyemibioku@gmail.com"
+              style={{ color: "#3BAFCA" }}
+            >
+              opeyemibioku@gmail.com
+            </a>
+          </div>
+          <div className="">
+            <a href="https://github.com/opeyemibioku">
+              <i className="bi bi-github text-light mx-2" target="_blank"></i>
+            </a>
 
-// const Experience = () => {
-//   return (
-//     <>
-//       <div
-//         className="container-fluid pt-5"
-//         style={{ backgroundColor: "#1B232E" }}
-//       >
-//         <div
-//           className="row g-0 aboutSection d-flex justify-content-center justify-content-around"
-//           id="experience"
-//         >
-//           <div className="col-lg-4">
-//             {/* <div className=""> */}
-//             <div className="card-body">
-//               <h4 className="card-title  text-white">EXPERIENCE</h4>
-//               <p className="card-text experience-header mt-3 text-white">
-//                 (8thGear Partners Limited, Lagos, Nigeria.)
-//               </p>
-//               <p className="card-text experience-text text-white">
-//                 April 2021 - Present
-//               </p>
-//               <p className="card-text experience-text text-white">
-//                 Frontend Developer
-//               </p>
-//               <p className="card-text experience-text text-white">Role</p>
-//               <div className="vl ms-5"></div>
-//               <ul className="list-group list-group-flush experience-sub-text">
-//                 <li className="ms-5 text-white">
-//                   Develop and maintain functional and interactive user interface
-//                   using frontend technologies.
-//                 </li>
-//                 <li className="ms-5 pt-1 text-white">
-//                   Work closely with designers and developers to meet project
-//                   requirements, fix bugs and implement new features.
-//                 </li>
-//                 <li className="ms-5 pt-1 text-white">
-//                   Manage and update existing web apps and websites to improve
-//                   user experience and web functionality.
-//                 </li>
-//                 <li className="ms-5 pt-1 text-white">
-//                   Optimize web apps and websites performance using modern web
-//                   standards and design.
-//                 </li>
-//               </ul>
-//             </div>
-//             {/* </div> */}
-//           </div>
-//           <div
-//             className="vertical-line col-lg-2"
-//             style={{
-//               borderLeft: "1px solid #fff",
-//               height: "400px",
-//               marginLeft: "15px",
-//             }}
-//           ></div>
-//           <div className="col-lg-4">
-//             <div className="">
-//               <div className="card-body">
-//                 <h4 className="card-title experience-text text-white">
-//                   EDUCATION
-//                 </h4>
-//                 <ul className="list-group list-group-flush experience-sub-text">
-//                   <li className="ms-5 text-white">
-//                     B.Tech Science Laboratory Technology, LAUTECH (2019).
-//                   </li>
-//                   <li className="ms-5 pt-1 text-white">
-//                     NYSC discharge certificate (March,9 2021).
-//                   </li>
-//                   <li className="ms-5 pt-1 text-white">
-//                     Programming Foundations: Fundamentals, LinkedIn (Dec, 2020).
-//                   </li>
-//                   <li className="ms-5 pt-1 text-white">
-//                     Jobberman Soft-Skills Training (March 2021).
-//                   </li>
-//                 </ul>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
+            <a href="https://www.linkedin.com/in/opeyemi-bioku" target="_blank">
+              <i className="bi bi-linkedin text-light mx-2"></i>
+            </a>
+            <a href="">
+              <i
+                className="bi bi-instagram text-light mx-2"
+                target="_blank"
+              ></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default Home;
