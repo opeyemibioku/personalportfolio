@@ -1,0 +1,40 @@
+.DevBtn {
+  border: 1px solid #3bafca;
+  background-color: #1b232e;
+  border-radius: 10px;
+  width: 9rem;
+  height: 2.5rem;
+  color: #ffffff;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.05rem;
+  //   &:hover {
+  //     background-color: #3bafca;
+  //     color: #000000;
+  //   }
+}
+
+.DesBtn {
+  border: 1px solid #3bafca;
+  background-color: #1b232e;
+  border-radius: 10px;
+  width: 9rem;
+  height: 2.5rem;
+  color: #ffffff;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.05rem;
+  //   &:hover {
+  //     background-color: #3bafca;
+  //     color: #000000;
+  //   }
+}
+
+.hoverStyle {
+  color: #3bafca;
+  &:hover {
+    color: #fffffff;
+  }
+}
