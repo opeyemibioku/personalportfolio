@@ -33,7 +33,7 @@ const Navbar = () => {
   return (
     <>
       <div
-        className="container-fluid px-5"
+        className="container-fluid ps-5"
         style={{ backgroundColor: "#222A35" }}
       >
         <div className="d-flex">
@@ -526,7 +526,7 @@ const TechStacks = () => {
             Next JS
           </p>
         </div>
-        <div
+        {/* <div
           className="col-lg-3 col-md-3 col-sm-12 mt-2"
           style={{
             border: "1px solid #3BAFCA",
@@ -549,7 +549,7 @@ const TechStacks = () => {
           >
             React-Bootstrap
           </p>
-        </div>
+        </div> */}
       </div>
       <div className="row align-items-center justify-content-center px-4 pb-5">
         <div
@@ -1161,7 +1161,7 @@ const Experience = () => {
   return (
     <>
       <div
-        className="container-fluid py-5"
+        className="container-fluid py-5 px-3"
         id="#experience"
         style={{ backgroundColor: "#1B232E" }}
       >
@@ -1192,7 +1192,7 @@ const Experience = () => {
                 </li> */}
               </ul>
               <p className="card-text experience-header mt-3 text-white">
-                8thGear Hub & Venture Studio, Lagos, Nigeria.s
+                8thGear Hub & Venture Studio, Lagos, Nigeria
               </p>
               <p
                 className="card-text experience-text text-white m-0 p-0"
