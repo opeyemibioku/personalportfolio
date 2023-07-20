@@ -846,7 +846,7 @@ const MyProjects = () => {
                         React
                       </p>
                       <p
-                        className="card-text text-white"
+                        className="card-text text-white ms-3"
                         style={{
                           fontSize: "14px",
                           opacity: ".8",
