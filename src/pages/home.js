@@ -6,6 +6,7 @@ import op from "../assets/images/op.png";
 import opeyemi from "../assets/images/opeyemi.png";
 
 import project from "../assets/images/projects/project.jpg";
+import legalmo from "../assets/images/projects/legalmo.png";
 import cash2go from "../assets/images/projects/cash2go.png";
 import haven from "../assets/images/projects/haven.png";
 import eightgear from "../assets/images/projects/eightgear.png";
@@ -688,6 +689,86 @@ const MyProjects = () => {
           <h2>
             {" "}
             <div className="row justify-content-evenly">
+              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
+                <div className="mb-5 py-4 cardBg">
+                  <div className="">
+                    <img
+                      src={legalmo}
+                      className="img-fluid"
+                      style={{ borderRadius: "10px" }}
+                    />
+                  </div>
+                  <div className="card-body mt-3">
+                    <h5 className="card-title text-white">LegalMo</h5>
+                    <p
+                      className="card-title text-white my-2"
+                      style={{ fontSize: "16px", fontWeight: "200" }}
+                    >
+                      B2B Legal Services Matching App
+                    </p>
+                    <div className="d-flex mt-2">
+                      {" "}
+                      <p
+                        className="card-text text-white"
+                        style={{
+                          fontSize: "14px",
+                          opacity: ".8",
+                          fontWeight: "200",
+                        }}
+                      >
+                        MongoDB
+                      </p>
+                      <p
+                        className="card-text text-white ms-3"
+                        style={{
+                          fontSize: "14px",
+                          opacity: ".8",
+                          fontWeight: "200",
+                        }}
+                      >
+                        Express
+                      </p>
+                      <p
+                        className="card-text text-white ms-3"
+                        style={{
+                          fontSize: "14px",
+                          opacity: ".8",
+                          fontWeight: "200",
+                        }}
+                      >
+                        React
+                      </p>
+                      <p
+                        className="card-text text-white ms-3"
+                        style={{
+                          fontSize: "14px",
+                          opacity: ".8",
+                          fontWeight: "200",
+                        }}
+                      >
+                        Node JS
+                      </p>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between mt-3">
+                    <a href="https://www.legalmo.biz/" target="_blank">
+                      <p style={{ fontSize: "14px" }}>Project Link</p>
+                    </a>
+                    <a
+                      href="https://github.com/8thGear-Tech/LegalMo"
+                      target="_blank"
+                    >
+                      <p style={{ fontSize: "14px" }}>Frontend GitHub</p>
+                    </a>
+                    <a
+                      href="https://github.com/8thGear-Tech/LegalMoServer"
+                      target="_blank"
+                    >
+                      <p style={{ fontSize: "14px" }}>Backend GitHub</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
               <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
                 <div className="mb-5 py-4 cardBg">
                   <div className="">
