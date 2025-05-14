@@ -6,6 +6,9 @@ import op from "../assets/images/op.png";
 import opeyemi from "../assets/images/opeyemi.png";
 
 import project from "../assets/images/projects/project.jpg";
+import geotrak from "../assets/images/projects/geotrak.png";
+import everythingmeat from "../assets/images/projects/everythingmeat.png";
+import iktm from "../assets/images/projects/iktm.png";
 import legalmo from "../assets/images/projects/legalmo.png";
 import cash2go from "../assets/images/projects/cash2go.png";
 import haven from "../assets/images/projects/haven.png";
@@ -330,7 +333,7 @@ const TechStacks = () => {
               fontSize: "1.05rem",
             }}
           >
-            Node JS
+            Node/NestJS
           </p>
         </div>
         <div
@@ -402,31 +405,7 @@ const TechStacks = () => {
               fontSize: "1.05rem",
             }}
           >
-            MySQL
-          </p>
-        </div>
-        <div
-          className="col-lg-3 col-md-3 col-sm-12 mt-2"
-          style={{
-            border: "1px solid #3BAFCA",
-            backgroundColor: "#1B232E",
-            borderRadius: "10px",
-            width: "9rem",
-            height: "2.5rem",
-          }}
-        >
-          {" "}
-          <p
-            className="text-center mt-2"
-            style={{
-              color: "#ffffff",
-              fontFamily: "Rubik",
-              fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "1.05rem",
-            }}
-          >
-            HTML
+            React/NextJS
           </p>
         </div>
       </div>
@@ -476,7 +455,7 @@ const TechStacks = () => {
               fontSize: "1.05rem",
             }}
           >
-            JavaScript
+            Git/GitHub
           </p>
         </div>
         <div
@@ -500,9 +479,10 @@ const TechStacks = () => {
               fontSize: "1.05rem",
             }}
           >
-            React JS
+            MySQL
           </p>
         </div>
+
         <div
           className="col-lg-3 col-md-3 col-sm-12 mt-2"
           style={{
@@ -524,35 +504,11 @@ const TechStacks = () => {
               fontSize: "1.05rem",
             }}
           >
-            Next JS
+            Figma
           </p>
         </div>
-        {/* <div
-          className="col-lg-3 col-md-3 col-sm-12 mt-2"
-          style={{
-            border: "1px solid #3BAFCA",
-            backgroundColor: "#1B232E",
-            borderRadius: "10px",
-            width: "9rem",
-            height: "2.5rem",
-          }}
-        >
-          {" "}
-          <p
-            className="text-center mt-2"
-            style={{
-              color: "#ffffff",
-              fontFamily: "Rubik",
-              fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "1.05rem",
-            }}
-          >
-            React-Bootstrap
-          </p>
-        </div> */}
       </div>
-      <div className="row align-items-center justify-content-center px-4 pb-5">
+      {/* <div className="row align-items-center justify-content-center px-4 pb-5">
         <div
           className="col-lg-3 col-md-3 col-sm-12 mt-2 mx-5"
           style={{
@@ -625,7 +581,7 @@ const TechStacks = () => {
             Vercel
           </p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -689,6 +645,235 @@ const MyProjects = () => {
           <h2>
             {" "}
             <div className="row justify-content-evenly">
+              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
+                <div className="mb-5 py-4 cardBg">
+                  <div className="">
+                    <img
+                      src={geotrak}
+                      className="img-fluid"
+                      style={{ borderRadius: "10px" }}
+                    />
+                  </div>
+                  <div className="card-body mt-3">
+                    <h5 className="card-title text-white">Geotrak</h5>
+                    <p
+                      className="card-title text-white my-2"
+                      style={{ fontSize: "16px", fontWeight: "200" }}
+                    >
+                      Data collection software supporting location tracking and
+                      media capture
+                    </p>
+                    <div className="d-flex mt-2">
+                      {" "}
+                      <p
+                        className="card-text text-white"
+                        style={{
+                          fontSize: "14px",
+                          opacity: ".8",
+                          fontWeight: "200",
+                        }}
+                      >
+                        NextJS
+                      </p>
+                      <p
+                        className="card-text text-white ms-3"
+                        style={{
+                          fontSize: "14px",
+                          opacity: ".8",
+                          fontWeight: "200",
+                        }}
+                      >
+                        NestJS
+                      </p>
+                      <p
+                        className="card-text text-white ms-3"
+                        style={{
+                          fontSize: "14px",
+                          opacity: ".8",
+                          fontWeight: "200",
+                        }}
+                      >
+                        MongoDB
+                      </p>
+                      <p
+                        className="card-text text-white ms-3"
+                        style={{
+                          fontSize: "14px",
+                          opacity: ".8",
+                          fontWeight: "200",
+                        }}
+                      >
+                        Tailwind CSS
+                      </p>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between mt-3">
+                    <a href="https://www.geotrak.app/" target="_blank">
+                      <p style={{ fontSize: "14px" }}>Project Link</p>
+                    </a>
+                    <a
+                      href="https://github.com/TrulanceHQ/geo-collect-ui"
+                      target="_blank"
+                    >
+                      <p style={{ fontSize: "14px" }}>Frontend GitHub</p>
+                    </a>
+                    <a
+                      href="https://github.com/TrulanceHQ/geo-collect"
+                      target="_blank"
+                    >
+                      <p style={{ fontSize: "14px" }}>Backend GitHub</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
+                <div className="mb-5 py-4 cardBg">
+                  <div className="">
+                    <img
+                      src={everythingmeat}
+                      className="img-fluid"
+                      style={{ borderRadius: "10px" }}
+                    />
+                  </div>
+                  <div className="card-body mt-3">
+                    <h5 className="card-title text-white">Everything Meat</h5>
+                    <p
+                      className="card-title text-white my-2"
+                      style={{ fontSize: "16px", fontWeight: "200" }}
+                    >
+                      An e-commerce platform that connects buyers and sellers of
+                      freshly butchered livestock
+                    </p>
+                    <div className="d-flex mt-2">
+                      {" "}
+                      <p
+                        className="card-text text-white"
+                        style={{
+                          fontSize: "14px",
+                          opacity: ".8",
+                          fontWeight: "200",
+                        }}
+                      >
+                        NextJS
+                      </p>
+                      <p
+                        className="card-text text-white ms-3"
+                        style={{
+                          fontSize: "14px",
+                          opacity: ".8",
+                          fontWeight: "200",
+                        }}
+                      >
+                        NestJS
+                      </p>
+                      <p
+                        className="card-text text-white ms-3"
+                        style={{
+                          fontSize: "14px",
+                          opacity: ".8",
+                          fontWeight: "200",
+                        }}
+                      >
+                        MongoDB
+                      </p>
+                      <p
+                        className="card-text text-white ms-3"
+                        style={{
+                          fontSize: "14px",
+                          opacity: ".8",
+                          fontWeight: "200",
+                        }}
+                      >
+                        Tailwind CSS
+                      </p>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between mt-3">
+                    <a
+                      href="https://everythingmeat.vercel.app/"
+                      target="_blank"
+                    >
+                      <p style={{ fontSize: "14px" }}>Project Link</p>
+                    </a>
+                    <a href="#" target="_blank">
+                      <p style={{ fontSize: "14px" }}>Frontend GitHub</p>
+                    </a>
+                    <a href="#" target="_blank">
+                      <p style={{ fontSize: "14px" }}>Backend GitHub</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
+                <div className="mb-5 py-4 cardBg">
+                  <div className="">
+                    <img
+                      src={iktm}
+                      className="img-fluid"
+                      style={{ borderRadius: "10px" }}
+                    />
+                  </div>
+                  <div className="card-body mt-3">
+                    <h5 className="card-title text-white">
+                      Ikeja Toastmasters Club
+                    </h5>
+                    <p
+                      className="card-title text-white my-2"
+                      style={{ fontSize: "16px", fontWeight: "200" }}
+                    >
+                      Empowering diverse individuals to become confident
+                      speakers and leaders
+                    </p>
+                    <div className="d-flex mt-2">
+                      {" "}
+                      <p
+                        className="card-text text-white"
+                        style={{
+                          fontSize: "14px",
+                          opacity: ".8",
+                          fontWeight: "200",
+                        }}
+                      >
+                        React
+                      </p>
+                      <p
+                        className="card-text text-white ms-3"
+                        style={{
+                          fontSize: "14px",
+                          opacity: ".8",
+                          fontWeight: "200",
+                        }}
+                      >
+                        Tailwind CSS
+                      </p>
+                      <p
+                        className="card-text text-white ms-3"
+                        style={{
+                          fontSize: "14px",
+                          opacity: ".8",
+                          fontWeight: "200",
+                        }}
+                      >
+                        Firebase
+                      </p>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between mt-3">
+                    <a href="http://ikejatoastmasters.com/" target="_blank">
+                      <p style={{ fontSize: "14px" }}>Project Link</p>
+                    </a>
+                    <a href="#" target="_blank">
+                      <p style={{ fontSize: "14px" }}>Frontend GitHub</p>
+                    </a>
+                    {/* <a
+                      href="https://github.com/opeyemibioku/ikeja-toastmasters-club"
+                      target="_blank"
+                    >
+                      <p style={{ fontSize: "14px" }}>Frontend GitHub</p>
+                    </a> */}
+                  </div>
+                </div>
+              </div>
               <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
                 <div className="mb-5 py-4 cardBg">
                   <div className="">
@@ -1254,23 +1439,25 @@ const Experience = () => {
             <div className="card-body">
               <h4 className="card-title text-white">Experience</h4>
               <p className="card-text experience-header mt-3 text-white ">
-                Stutern, Lagos, Nigeria.
+                Ezzyrun, Lagos, Nigeria.
               </p>
               <p
                 className="card-text experience-text text-white m-0 p-0"
                 style={{ fontWeight: "200", opacity: ".8", fontSize: "15px" }}
               >
-                Backend Developer, February 2023 - Present
+                Backend Developer, March 2025 - Present
               </p>
               <ul className="list-group list-group-flush experience-sub-text">
                 <li className="ms-5 text-white">
-                  Develop and maintain scalable backend infrastructure for web
-                  applications using Node.js, Express, and MongoDB.
+                  Develop and maintain scalable backend infrastructure for
+                  web/mobile applications using Nest.js and MongoDB.
                 </li>
-                {/* <li className="ms-5 pt-1 text-white">
-                  Work closely with designers and developers to meet project
-                  requirements, fix bugs, and implement new features.
-                </li> */}
+                <li className="ms-5 text-white">
+                  Develop and maintain automated tests to ensure code quality.
+                </li>
+                <li className="ms-5 text-white">
+                  Set up and maintain CI/CD pipelines and deployment workflows.
+                </li>
               </ul>
               <p className="card-text experience-header mt-3 text-white">
                 8thGear Hub & Venture Studio, Lagos, Nigeria
@@ -1279,17 +1466,40 @@ const Experience = () => {
                 className="card-text experience-text text-white m-0 p-0"
                 style={{ fontWeight: "200", opacity: ".8", fontSize: "15px" }}
               >
-                Frontend Developer, April 2021 - Present
+                FullStack Developer, April 2021 - Present
               </p>
               <ul className="list-group list-group-flush experience-sub-text">
                 <li className="ms-5 text-white">
-                  Lead and collaborate with a team to develop and maintain
-                  scalable solutions using React.js, Bootstrap, Node.js,
-                  Express, and MySQL
+                  Lead end-to-end development of responsive and accessible web
+                  applications with Next.js and Tailwind CSS on the frontend.
                 </li>
                 <li className="ms-5 pt-1 text-white">
-                  Manage the IT infrastructure, and analyze web traffic for
-                  future enhancements and optimizations.
+                  Build robust backend services and APIs using Nest.js,
+                  integrating with MongoDB.
+                </li>
+                <li className="ms-5 pt-1 text-white">
+                  Optimize application performance, scalability, and
+                  responsiveness across devices.
+                </li>
+                <li className="ms-5 pt-1 text-white">
+                  Follow Agile methodologies and contribute to sprint planning,
+                  code reviews, and continuous improvement efforts.
+                </li>
+              </ul>
+
+              <p className="card-text experience-header mt-3 text-white ">
+                Stutern, Lagos, Nigeria.
+              </p>
+              <p
+                className="card-text experience-text text-white m-0 p-0"
+                style={{ fontWeight: "200", opacity: ".8", fontSize: "15px" }}
+              >
+                Backend Developer, February 2023 - January 2024
+              </p>
+              <ul className="list-group list-group-flush experience-sub-text">
+                <li className="ms-5 text-white">
+                  Develop and maintain scalable backend infrastructure for web
+                  applications using Node.js, Express, and MongoDB.
                 </li>
               </ul>
             </div>
@@ -1308,6 +1518,21 @@ const Experience = () => {
               <p className="card-text experience-header mt-3 text-white"></p>
               <ul className="list-group list-group-flush experience-sub-text">
                 <li className="ms-5 text-white ">
+                  {" "}
+                  G3Women x Women Techmakers
+                  <ul>
+                    <li
+                      style={{
+                        fontWeight: "200",
+                        opacity: ".8",
+                        fontSize: "15px",
+                      }}
+                    >
+                      DevOps Fundamentals, Nov 2024
+                    </li>
+                  </ul>
+                </li>
+                <li className="ms-5 text-white mt-3">
                   {" "}
                   Stutern Graduate Accelerator
                   <ul>
