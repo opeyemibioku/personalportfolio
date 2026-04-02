@@ -179,7 +179,7 @@ const DESIGN_PROJECTS = [
 const Navigation = () => (
   <nav className="navbar">
     <div className="nav-content">
-      <div className="nav-logo">Opeyemi</div>
+      <div className="nav-logo">Opeyemi Bioku</div>
       <div className="nav-links">
         <a href="#work">Work</a>
         <a href="#about">About</a>
