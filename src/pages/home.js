@@ -5,7 +5,6 @@ import '../sassfiles/pages/_home.scss';
 
 import opeyemi from "../assets/images/copy.png";
 
-import project from "../assets/images/projects/project.jpg";
 import digiplusalliance from "../assets/images/projects/digiplus-alliance.png";
 import geotrak from "../assets/images/projects/geotrak.png";
 import everythingmeat from "../assets/images/projects/everythingmeat.png";
@@ -14,7 +13,6 @@ import legalmo from "../assets/images/projects/legalmo.png";
 import cash2go from "../assets/images/projects/cash2go.png";
 import haven from "../assets/images/projects/haven.png";
 import eightgear from "../assets/images/projects/eightgear.png";
-import mindafrik from "../assets/images/projects/mindafrik.png";
 import freshchow from "../assets/images/projects/freshchow.png";
 import jolevi from "../assets/images/projects/jolevi.png";
 import languagehub from "../assets/images/projects/languagehub.png";
@@ -191,34 +189,6 @@ const Navigation = () => (
   </nav>
 );
 
-// ── Option B: Photo bleeds from right edge ──────────────────────────────────
-const HeroB = () => (
-  <section className="hero-b">
-    <div className="hero-b-photo">
-      <img src={opeyemi} alt="Opeyemi Bioku" />
-    </div>
-    <div className="hero-b-content">
-      <div className="hero-b-text">
-        <div className="hero-b-eyebrow">Fullstack Developer</div>
-        <h1 className="hero-title">
-          Building<br />
-          <span className="hero-highlight">Digital Solutions</span>
-        </h1>
-        <p className="hero-subtitle">
-          I design and build web applications that solve real problems. From backend infrastructure to frontend experiences, I create products that matter.
-        </p>
-        <div className="hero-cta">
-          <a href="#work"><button className="btn-primary">View My Work</button></a>
-          <a href="#contact"><button className="btn-secondary">Get in Touch</button></a>
-        </div>
-      </div>
-    </div>
-    <div className="scroll-indicator">
-      <span>Scroll to explore</span>
-      <ChevronDown size={18} />
-    </div>
-  </section>
-);
 
 // ── Option C: Centered with circular headshot ────────────────────────────────
 const HeroC = () => (
