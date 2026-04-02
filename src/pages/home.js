@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import ope from "../assets/images/ope.png";
-import opeyemibioku from "../assets/images/opeyemibioku.png";
-import op from "../assets/images/op.png";
-import opeyemi from "../assets/images/opeyemi.png";
+import { useState } from 'react';
+import { ChevronDown, Mail, ExternalLink, Code2, Palette } from 'lucide-react';
+import '../sassfiles/pages/_home.scss';
+
+
+import opeyemi from "../assets/images/copy.png";
 
 import project from "../assets/images/projects/project.jpg";
+import digiplusalliance from "../assets/images/projects/digiplus-alliance.png";
 import geotrak from "../assets/images/projects/geotrak.png";
 import everythingmeat from "../assets/images/projects/everythingmeat.png";
 import iktm from "../assets/images/projects/iktm.png";
@@ -19,1635 +20,420 @@ import jolevi from "../assets/images/projects/jolevi.png";
 import languagehub from "../assets/images/projects/languagehub.png";
 import portfolio from "../assets/images/projects/portfolio.png";
 
-const Home = () => {
-  return (
-    <>
-      <Navbar />
-      <HomeHero />
-      {/* <Hero /> */}
-      <TechStacks />
-      <MyProjects />
-      <Experience />
-      {/* <Footer /> */}
-    </>
-  );
-};
 
-const Navbar = () => {
-  return (
-    <>
-      <div
-        className="container-fluid ps-5"
-        style={{ backgroundColor: "#222A35" }}
-      >
-        <div className="d-flex">
-          <Link to="/" style={{ textDecoration: "none", opacity: ".9" }}>
-            {" "}
-            <h5 className="mt-4 text-white">Opeyemi Bioku</h5>
-          </Link>
-        </div>
+const GitHubIcon = ({ size = 20 }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+    <path d="M9 18c-4.51 2-5-2-7-2" />
+  </svg>
+);
+
+const LinkedInIcon = ({ size = 20 }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
+const DEV_PROJECTS = [
+  {
+    id: 1,
+    title: 'DigiPlus Alliance',
+    description: 'MSME Digital Maturity Assessment & Transformation Platform with comprehensive dashboard architecture for tracking digital adoption across small businesses.',
+    image: digiplusalliance,
+    tech: ['NestJS', 'Next.js', 'MongoDB', 'Tailwind CSS'],
+    links: {
+      live: 'https://www.digiplus.africa/',
+      front: 'https://github.com/digiplus-alliance/digiplus-alliance-client',
+      back: 'https://github.com/digiplus-alliance/digiplus-alliance-server'
+    }
+  },
+  {
+    id: 2,
+    title: 'Ikeja Toastmasters Club',
+    description: 'Website for empowering individuals to become confident speakers and leaders, featuring event management, member registration, and club resources.',
+    image: iktm,
+    tech: ['React', 'Tailwind CSS', 'Firebase'],
+    links: {
+      live: 'https://ikeja-toastmasters-club.vercel.app/',
+      front: 'https://github.com/opeyemibioku/ikeja-toastmasters-club'
+    }
+  },
+  {
+    id: 3,
+    title: 'Everything Meat',
+    description: 'E-commerce marketplace connecting buyers and sellers of freshly butchered livestock, with real-time inventory, order tracking, and vendor management.',
+    image: everythingmeat,
+    tech: ['Next.js', 'NestJS', 'MongoDB', 'Tailwind CSS'],
+    links: {
+      live: 'https://everythingmeat.vercel.app/',
+      front: 'https://github.com/opeyemibioku/everythingmeat-frontend',
+      back: 'https://github.com/opeyemibioku/everythingmeat-backend'
+    }
+  },
+  {
+    id: 4,
+    title: '8thGear',
+    description: 'Business website showcasing digital transformation services, venture studio offerings, and tech partnerships for African startups.',
+    image: eightgear,
+    tech: ['React', 'Bootstrap', 'SASS', 'JavaScript'],
+    links: {
+      live: 'https://8thgearpartners.com/',
+      front: 'https://github.com/8thGear-Tech/8thGearWebsite'
+    }
+  },
+  {
+    id: 5,
+    title: 'Jolevi',
+    description: 'Freelance marketplace connecting skilled service providers with clients across Nigeria. Features provider profiles, service listings, client reviews, and a seamless booking flow.',
+    image: jolevi,
+    tech: ['Next.js', 'NestJS', 'MongoDB', 'Tailwind CSS'],
+    links: {
+      live: 'https://www.jolevi.com/',
+      front: 'https://github.com/JoleviTech/Jolevi',
+      back: 'https://github.com/JoleviTech/jolevi-server'
+    }
+  },
+  {
+    id: 6,
+    title: 'LegalMo',
+    description: 'B2B Legal Services Matching App connecting legal professionals with businesses seeking legal expertise, featuring smart matching and secure document sharing.',
+    image: legalmo,
+    tech: ['React', 'Express', 'MongoDB', 'Node.js'],
+    links: {
+      live: 'https://www.legalmo.biz/',
+      front: 'https://github.com/8thGear-Tech/LegalMo',
+      back: 'https://github.com/8thGear-Tech/LegalMoServer'
+    }
+  },
+  {
+    id: 7,
+    title: 'Geotrak',
+    description: 'Data collection software supporting location tracking and real-time media capture for field operations, built for survey teams and on-the-ground data agents.',
+    image: geotrak,
+    tech: ['Next.js', 'NestJS', 'MongoDB', 'Tailwind CSS'],
+    links: {
+      live: 'https://www.geotrak.app/',
+      front: 'https://github.com/TrulanceHQ/geo-collect-ui',
+      back: 'https://github.com/TrulanceHQ/geo-collect'
+    }
+  },
+  {
+    id: 8,
+    title: 'Cash2go',
+    description: 'Loan prediction application using machine learning algorithms to assess creditworthiness and streamline the loan approval process for underserved users.',
+    image: cash2go,
+    tech: ['Node.js', 'Express', 'MongoDB'],
+    links: {
+      live: 'https://cash2go.netlify.app/',
+      back: 'https://github.com/Cash2go-backend-org/cash2go-backend'
+    }
+  },
+  {
+    id: 9,
+    title: 'Haven',
+    description: 'Instructor-School Matching App connecting educators with educational institutions looking for qualified teachers across Nigeria.',
+    image: haven,
+    tech: ['React', 'Bootstrap', 'SASS', 'JavaScript'],
+    links: {
+      live: 'https://www.haveneduservices.com/',
+      front: 'https://github.com/8thGear-Tech/haven-web-app'
+    }
+  }
+];
+
+const DESIGN_PROJECTS = [
+  {
+    id: 1,
+    title: 'Jolevi',
+    description: 'Freelance marketplace connecting service providers with clients — full UI/UX design covering onboarding, service discovery, and booking flows.',
+    image: jolevi,
+    tech: ['Figma', 'UI/UX'],
+    links: { figma: 'https://www.figma.com/proto/g4zcpr232hab89Yk3h51Ox/Jolevi' }
+  },
+  {
+    id: 2,
+    title: 'Freshchow',
+    description: 'Food delivery application with intuitive user interface design.',
+    image: freshchow,
+    tech: ['Figma', 'UI/UX'],
+    links: { figma: 'https://www.figma.com/proto/LTRLUlKSkWQt4NLdKjkxqd/Fresh-Chow?type=design&node-id=233-903&t=tUAKC6Us4Z74bKAb-0' }
+  },
+  {
+    id: 3,
+    title: 'LanguageHub',
+    description: 'Language learning platform with engaging interactive design.',
+    image: languagehub,
+    tech: ['Figma', 'UI/UX'],
+    links: { figma: 'https://www.figma.com/proto/jR5miImofMkFRGjqDDVGOn/LanguageHubng?node-id=3-15&scaling=scale-down' }
+  },
+  {
+    id: 4,
+    title: 'Portfolio Website',
+    description: 'Personal portfolio showcasing design and development work.',
+    image: portfolio,
+    tech: ['Figma', 'UI/UX'],
+    links: { figma: 'https://www.figma.com/proto/GvyThbsKeyZxLxXV8coXMG/titiekundayo?type=design&node-id=513-178' }
+  }
+];
+
+const Navigation = () => (
+  <nav className="navbar">
+    <div className="nav-content">
+      <div className="nav-logo">Opeyemi</div>
+      <div className="nav-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
       </div>
-    </>
-  );
-};
+    </div>
+  </nav>
+);
 
-export const HomeHero = () => {
-  return (
-    <div className="container-fluid" style={{ backgroundColor: "#222A35" }}>
-      <div className="row align-items-center justify-content-center px-4 py-4">
-        <div className="col-lg-2 col-md-1 pt-3 d-none d-lg-block d-md-block d-sm-none d-xs-none">
-          <div className="my-3">
-            <a href="https://github.com/opeyemibioku">
-              <i className="bi bi-github text-light" target="_blank"></i>
-            </a>
-          </div>
-          <div className="my-3">
-            <a href="https://www.linkedin.com/in/opeyemi-bioku" target="_blank">
-              <i className="bi bi-linkedin text-light"></i>
-            </a>
-          </div>{" "}
-          <div className="my-3">
-            <a href="mailto:opeyemibioku@gmail.com">
-              <i className="bi bi-envelope text-light" target="_blank"></i>
-            </a>
-          </div>
-          <div className="my-3">
-            <a href="">
-              <i className="bi bi-instagram text-light" target="_blank"></i>
-            </a>
-          </div>
-        </div>
-        <div className="col-sm-12 d-xs-block d-sm-block d-md-none d-lg-none">
-          <a href="https://github.com/opeyemibioku">
-            <i className="bi bi-github text-light mx-2" target="_blank"></i>
-          </a>
-
-          <a href="https://www.linkedin.com/in/opeyemi-bioku" target="_blank">
-            <i className="bi bi-linkedin text-light mx-2"></i>
-          </a>
-          <a href="">
-            <i className="bi bi-instagram text-light mx-2" target="_blank"></i>
-          </a>
-        </div>
-        <div className="col-lg-5 col-md-7 col-sm-12 pt-2">
-          <p className="text-light" style={{ opacity: ".9" }}>
-            Hi, I’m Opeyemi Bioku
-            <br />
-          </p>
-          {/* <h5
-            className=" d-xs-block d-sm-block d-md-block d-lg-none text-light"
-            style={{ opacity: ".9" }}
-          >
-            Hi, I’m Opeyemi Bioku.
-            <br />
-          </h5> */}{" "}
-          <h2 className="text-light">A Fullstack Developer</h2>
-          <p className="text-light" style={{ fontSize: "20px" }}>
-            Proficient in building web solutions.
-          </p>
-          <div className="mt-4">
-            {/* <div className="col-lg-12 col-md-7 col-sm-12 pt-3"> */}
-            <div className="d-flex">
-              <hr style={{ width: "4rem" }} className="text-light" />
-              <a href="#techstacks" className="text-decoration-none">
-                {" "}
-                <p
-                  className="ms-3 mt-1"
-                  style={{ fontSize: "0.9rem", color: "#3bafca" }}
-                >
-                  TECH STACKS
-                </p>
-              </a>
-            </div>
-            <div className="d-flex">
-              <hr style={{ width: "4rem" }} className="text-light" />
-              <a href="#myprojects" className="text-decoration-none">
-                {" "}
-                <p
-                  className="ms-3 mt-1"
-                  style={{ fontSize: "0.9rem", color: "#3bafca" }}
-                >
-                  MY PROJECTS
-                </p>
-              </a>
-            </div>
-            <div className="d-flex">
-              <hr style={{ width: "4rem" }} className="text-light" />
-              <a href="#experience" className="text-decoration-none">
-                {" "}
-                <p
-                  className="ms-3 mt-1"
-                  style={{ fontSize: "0.9rem", color: "#3bafca" }}
-                >
-                  EXPERIENCE
-                </p>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-4 col-md-5 col-sm-12">
-          <div className="d-flex justify-content-center mt-5">
-            <img
-              src={opeyemi}
-              className="d-block mx-lg-auto img-fluid"
-              alt=""
-              loading=""
-              width="350"
-              height="350"
-            />
-          </div>
+// ── Option B: Photo bleeds from right edge ──────────────────────────────────
+const HeroB = () => (
+  <section className="hero-b">
+    <div className="hero-b-photo">
+      <img src={opeyemi} alt="Opeyemi Bioku" />
+    </div>
+    <div className="hero-b-content">
+      <div className="hero-b-text">
+        <div className="hero-b-eyebrow">Fullstack Developer</div>
+        <h1 className="hero-title">
+          Building<br />
+          <span className="hero-highlight">Digital Solutions</span>
+        </h1>
+        <p className="hero-subtitle">
+          I design and build web applications that solve real problems. From backend infrastructure to frontend experiences, I create products that matter.
+        </p>
+        <div className="hero-cta">
+          <a href="#work"><button className="btn-primary">View My Work</button></a>
+          <a href="#contact"><button className="btn-secondary">Get in Touch</button></a>
         </div>
       </div>
     </div>
-  );
-};
+    <div className="scroll-indicator">
+      <span>Scroll to explore</span>
+      <ChevronDown size={18} />
+    </div>
+  </section>
+);
 
-const Hero = () => {
-  return (
-    <div className="container-fluid " style={{ backgroundColor: "#222A35" }}>
-      {/* <h5 className="pt-5 ps-3 text-white">Opeyemi Bioku</h5> */}
-      <div className="row align-items-center justify-content-center px-4 py-5">
-        <div className="col-lg-2 col-md-1 pt-3 d-none d-lg-block d-md-block d-sm-none d-xs-none">
-          <div className="my-3">
-            <a href="https://github.com/opeyemibioku">
-              <i className="bi bi-github text-light" target="_blank"></i>
-            </a>
-          </div>
-          <div className="my-3">
-            <a href="https://www.linkedin.com/in/opeyemi-bioku" target="_blank">
-              <i className="bi bi-linkedin text-light"></i>
-            </a>
-          </div>{" "}
-          <div className="my-3">
-            <a href="mailto:opeyemibioku@gmail.com">
-              <i className="bi bi-envelope text-light" target="_blank"></i>
-            </a>
-          </div>
-          <div className="my-3">
-            <a href="">
-              <i className="bi bi-instagram text-light" target="_blank"></i>
-            </a>
-          </div>
-        </div>
-        <div className="d-xs-block d-sm-block d-md-none d-lg-none">
-          <a href="https://github.com/opeyemibioku">
-            <i className="bi bi-github text-light mx-2" target="_blank"></i>
-          </a>
-
-          <a href="https://www.linkedin.com/in/opeyemi-bioku" target="_blank">
-            <i className="bi bi-linkedin text-light mx-2"></i>
-          </a>
-          <a href="">
-            <i className="bi bi-instagram text-light mx-2" target="_blank"></i>
-          </a>
-        </div>
-        <div className="col-lg-5 col-md-7 col-sm-12 pt-3">
-          <p className="text-light" style={{ opacity: ".9" }}>
-            Hi, I’m Opeyemi Bioku
-            <br />
-          </p>
-          {/* <h5
-            className=" d-xs-block d-sm-block d-md-block d-lg-none text-light"
-            style={{ opacity: ".9" }}
-          >
-            Hi, I’m Opeyemi Bioku.
-            <br />
-          </h5> */}{" "}
-          <h2 className="text-light">A Fullstack Developer</h2>
-          <p className="text-light" style={{ fontSize: "20px" }}>
-            Proficient in building web solutions.
-          </p>
-          <div className="mt-4">
-            {/* <div className="col-lg-12 col-md-7 col-sm-12 pt-3"> */}
-            <div className="d-flex">
-              <hr style={{ width: "4rem" }} className="text-light" />
-              <a href="#techstacks" className="text-decoration-none">
-                {" "}
-                <p
-                  className="ms-3 mt-1"
-                  style={{ fontSize: "0.9rem", color: "#3bafca" }}
-                >
-                  TECH STACKS
-                </p>
-              </a>
-            </div>
-            <div className="d-flex">
-              <hr style={{ width: "4rem" }} className="text-light" />
-              <a href="#myprojects" className="text-decoration-none">
-                {" "}
-                <p
-                  className="ms-3 mt-1"
-                  style={{ fontSize: "0.9rem", color: "#3bafca" }}
-                >
-                  MY PROJECTS
-                </p>
-              </a>
-            </div>
-            <div className="d-flex">
-              <hr style={{ width: "4rem" }} className="text-light" />
-              <a href="#experience" className="text-decoration-none">
-                {" "}
-                <p
-                  className="ms-3 mt-1"
-                  style={{ fontSize: "0.9rem", color: "#3bafca" }}
-                >
-                  EXPERIENCE
-                </p>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-3 col-md-4 col-sm-12">
-          <img
-            src={opeyemi}
-            // src={ope}
-            className="d-block mx-lg-auto img-fluid"
-            alt=""
-            loading=""
-            width="250"
-            height="250"
-          />
-        </div>
+// ── Option C: Centered with circular headshot ────────────────────────────────
+const HeroC = () => (
+  <section className="hero-c">
+    <div className="hero-c-content">
+      <div className="hero-c-photo">
+        <img src={opeyemi} alt="Opeyemi Bioku" />
       </div>
-      {/* <div className="row align-items-center px-4 pb-5">
-        <div className="col-lg-12 col-md-7 col-sm-12 pt-3">
-          <div className="d-flex">
-            <hr style={{ width: "4rem" }} className="text-light" />
-            <a href="#techstacks" className="text-decoration-none">
-              {" "}
-              <p className="ms-4 text-light" style={{ fontSize: "1.2rem" }}>
-                TECH STACKS
-              </p>
-            </a>
-          </div>
-          <div className="d-flex">
-            <hr style={{ width: "4rem" }} className="text-light" />
-            <a href="#myprojects" className="text-decoration-none">
-              {" "}
-              <p className="ms-4 text-light" style={{ fontSize: "1.2rem" }}>
-                MY PROJECTS
-              </p>
-            </a>
-          </div>
-          <div className="d-flex">
-            <hr style={{ width: "4rem" }} className="text-light" />
-            <a href="#experience" className="text-decoration-none">
-              {" "}
-              <p className="ms-4 text-light" style={{ fontSize: "1.2rem" }}>
-                EXPERIENCE
-              </p>
-            </a>
-          </div>
-        </div>
+      {/* <div className="hero-c-status">Available for new projects</div> */}
+      <h1 className="hero-title">
+        Fullstack Developer<br />
+        <span className="hero-highlight">Building Digital Solutions</span>
+      </h1>
+      {/* <div className="hero-c-tags">
+        <span>NestJS · Next.js</span>
+        <span>MongoDB · Node.js</span>
+        <span>UI/UX Design</span>
       </div> */}
+      <p className="hero-subtitle">
+        I design and build web applications that solve real problems. From backend infrastructure to frontend experiences, I create products that matter.
+      </p>
+      <div className="hero-cta">
+        <a href="#work"><button className="btn-primary">View My Work</button></a>
+        <a href="#contact"><button className="btn-secondary">Get in Touch</button></a>
+      </div>
     </div>
+    {/* <div className="scroll-indicator">
+      <span>Scroll to explore</span>
+      <ChevronDown size={18} />
+    </div> */}
+  </section>
+);
+
+const AboutSection = () => (
+  <section className="about" id="about">
+    <div className="container">
+      <div className="about-text">
+        <h2>About Me</h2>
+        <p>
+          I'm Opeyemi Bioku, a fullstack developer with a passion for creating seamless digital experiences. With expertise spanning from NestJS and Node.js backends to Next.js and React frontends, I've helped companies and startups bring their ideas to life.
+        </p>
+        <p>
+          I specialize in building scalable architectures, optimizing performance, and crafting responsive interfaces.
+        </p>
+      </div>
+      <div className="skills-flat">
+        <div className="skills-category">
+          <span className="skills-label">Languages</span>
+          <div className="skills-tags">
+            {['JavaScript (ES6+)', 'TypeScript'].map(s => <span key={s}>{s}</span>)}
+          </div>
+        </div>
+        <div className="skills-category">
+          <span className="skills-label">Frontend</span>
+          <div className="skills-tags">
+            {['Next.js', 'React.js', 'Redux', 'TailwindCSS', 'HTML5', 'CSS3', 'SASS', 'Bootstrap', 'Figma'].map(s => <span key={s}>{s}</span>)}
+          </div>
+        </div>
+        <div className="skills-category">
+          <span className="skills-label">Backend</span>
+          <div className="skills-tags">
+            {['Node.js', 'Nest.js', 'Express.js'].map(s => <span key={s}>{s}</span>)}
+          </div>
+        </div>
+        <div className="skills-category">
+          <span className="skills-label">Databases</span>
+          <div className="skills-tags">
+            {['MongoDB', 'MySQL'].map(s => <span key={s}>{s}</span>)}
+          </div>
+        </div>
+        <div className="skills-category">
+          <span className="skills-label">Tools & Cloud</span>
+          <div className="skills-tags">
+            {['Git', 'GitHub', 'Bitbucket', 'Postman', 'Swagger', 'AWS Amplify', 'Render', 'Cloudinary'].map(s => <span key={s}>{s}</span>)}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const ProjectsSection = ({ activeTab, setActiveTab }) => {
+  const projects = activeTab === 'dev' ? DEV_PROJECTS : DESIGN_PROJECTS;
+  const isDesign = activeTab === 'design';
+
+  return (
+    <section className="projects" id="work">
+      <div className="container">
+        <div className="projects-header">
+          <h2>Featured Work</h2>
+          <div className="project-tabs">
+            <button
+              className={`tab-btn${activeTab === 'dev' ? ' active' : ''}`}
+              onClick={() => setActiveTab('dev')}
+            >
+              <Code2 size={16} /> Development
+            </button>
+            <button
+              className={`tab-btn${activeTab === 'design' ? ' active' : ''}`}
+              onClick={() => setActiveTab('design')}
+            >
+              <Palette size={16} /> Design
+            </button>
+          </div>
+        </div>
+        <div className="projects-grid">
+          {projects.map(project => (
+            <ProjectCard key={project.id} project={project} isDesign={isDesign} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
-const TechStacks = () => {
+
+const ProjectCard = ({ project, isDesign }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div
-      className="container-fluid pt-5"
-      id="techstacks"
-      style={{ backgroundColor: "#1B232E" }}
+      className="project-card"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <h4 className="text-center text-light mb-4">Tech Stacks</h4>
-      <div className="row align-items-center justify-content-evenly justify-content-center px-4 pt-3 pb-5">
-        <div
-          className="col-lg-3 col-md-3 col-sm-12 mt-2"
-          style={{
-            border: "1px solid #3BAFCA",
-            backgroundColor: "#1B232E",
-            borderRadius: "10px",
-            width: "9rem",
-            height: "2.5rem",
-          }}
-        >
-          {" "}
-          <p
-            className="text-center mt-2"
-            style={{
-              color: "#ffffff",
-              fontFamily: "Rubik",
-              fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "1.05rem",
-            }}
-          >
-            Node/NestJS
-          </p>
-        </div>
-        <div
-          className="col-lg-3 col-md-3 col-sm-12 mt-2"
-          style={{
-            border: "1px solid #3BAFCA",
-            backgroundColor: "#1B232E",
-            borderRadius: "10px",
-            width: "9rem",
-            height: "2.5rem",
-          }}
-        >
-          {" "}
-          <p
-            className="text-center mt-2"
-            style={{
-              color: "#ffffff",
-              fontFamily: "Rubik",
-              fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "1.05rem",
-            }}
-          >
-            Express
-          </p>
-        </div>
-        <div
-          className="col-lg-3 col-md-3 col-sm-12 mt-2"
-          style={{
-            border: "1px solid #3BAFCA",
-            backgroundColor: "#1B232E",
-            borderRadius: "10px",
-            width: "9rem",
-            height: "2.5rem",
-          }}
-        >
-          {" "}
-          <p
-            className="text-center mt-2"
-            style={{
-              color: "#ffffff",
-              fontFamily: "Rubik",
-              fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "1.05rem",
-            }}
-          >
-            MongoDB
-          </p>
-        </div>
-        <div
-          className="col-lg-3 col-md-3 col-sm-12 mt-2"
-          style={{
-            border: "1px solid #3BAFCA",
-            backgroundColor: "#1B232E",
-            borderRadius: "10px",
-            width: "9rem",
-            height: "2.5rem",
-          }}
-        >
-          {" "}
-          <p
-            className="text-center mt-2"
-            style={{
-              color: "#ffffff",
-              fontFamily: "Rubik",
-              fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "1.05rem",
-            }}
-          >
-            React/NextJS
-          </p>
+      <div className="project-image-container">
+        <img src={project.image} alt={project.title} />
+        <div className={`project-overlay${isHovered ? ' visible' : ''}`}>
+          <a href={project.links.live || project.links.figma} target="_blank" rel="noopener noreferrer">
+            {isDesign ? 'View Design' : 'Visit Project'} <ExternalLink size={16} />
+          </a>
         </div>
       </div>
-      <div className="row align-items-center justify-content-evenly justify-content-center px-4 pb-5">
-        <div
-          className="col-lg-3 col-md-3 col-sm-12 mt-2"
-          style={{
-            border: "1px solid #3BAFCA",
-            backgroundColor: "#1B232E",
-            borderRadius: "10px",
-            width: "9rem",
-            height: "2.5rem",
-          }}
-        >
-          {" "}
-          <p
-            className="text-center mt-2"
-            style={{
-              color: "#ffffff",
-              fontFamily: "Rubik",
-              fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "1.05rem",
-            }}
-          >
-            SASS
-          </p>
+      <div className="project-body">
+        <h3 className="project-title">{project.title}</h3>
+        <p className="project-desc">{project.description}</p>
+        <div className="project-tech">
+          {project.tech.map(t => (
+            <span key={t}>{t}</span>
+          ))}
         </div>
-        <div
-          className="col-lg-3 col-md-3 col-sm-12 mt-2"
-          style={{
-            border: "1px solid #3BAFCA",
-            backgroundColor: "#1B232E",
-            borderRadius: "10px",
-            width: "9rem",
-            height: "2.5rem",
-          }}
-        >
-          {" "}
-          <p
-            className="text-center mt-2"
-            style={{
-              color: "#ffffff",
-              fontFamily: "Rubik",
-              fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "1.05rem",
-            }}
-          >
-            Git/GitHub
-          </p>
-        </div>
-        <div
-          className="col-lg-3 col-md-3 col-sm-12 mt-2"
-          style={{
-            border: "1px solid #3BAFCA",
-            backgroundColor: "#1B232E",
-            borderRadius: "10px",
-            width: "9rem",
-            height: "2.5rem",
-          }}
-        >
-          {" "}
-          <p
-            className="text-center mt-2"
-            style={{
-              color: "#ffffff",
-              fontFamily: "Rubik",
-              fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "1.05rem",
-            }}
-          >
-            MySQL
-          </p>
-        </div>
-
-        <div
-          className="col-lg-3 col-md-3 col-sm-12 mt-2"
-          style={{
-            border: "1px solid #3BAFCA",
-            backgroundColor: "#1B232E",
-            borderRadius: "10px",
-            width: "9rem",
-            height: "2.5rem",
-          }}
-        >
-          {" "}
-          <p
-            className="text-center mt-2"
-            style={{
-              color: "#ffffff",
-              fontFamily: "Rubik",
-              fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "1.05rem",
-            }}
-          >
-            Figma
-          </p>
-        </div>
-      </div>
-      {/* <div className="row align-items-center justify-content-center px-4 pb-5">
-        <div
-          className="col-lg-3 col-md-3 col-sm-12 mt-2 mx-5"
-          style={{
-            border: "1px solid #3BAFCA",
-            backgroundColor: "#1B232E",
-            borderRadius: "10px",
-            width: "9rem",
-            height: "2.5rem",
-          }}
-        >
-          {" "}
-          <p
-            className="text-center mt-2"
-            style={{
-              color: "#ffffff",
-              fontFamily: "Rubik",
-              fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "1.05rem",
-            }}
-          >
-            Git/GitHub
-          </p>
-        </div>
-        <div
-          className="col-lg-3 col-md-3 col-sm-12 mt-2 mx-5"
-          style={{
-            border: "1px solid #3BAFCA",
-            backgroundColor: "#1B232E",
-            borderRadius: "10px",
-            width: "9rem",
-            height: "2.5rem",
-          }}
-        >
-          {" "}
-          <p
-            className="text-center mt-2"
-            style={{
-              color: "#ffffff",
-              fontFamily: "Rubik",
-              fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "1.05rem",
-            }}
-          >
-            Figma
-          </p>
-        </div>
-        <div
-          className="col-lg-3 col-md-3 col-sm-12 mt-2 mx-5"
-          style={{
-            border: "1px solid #3BAFCA",
-            backgroundColor: "#1B232E",
-            borderRadius: "10px",
-            width: "9rem",
-            height: "2.5rem",
-          }}
-        >
-          {" "}
-          <p
-            className="text-center mt-2"
-            style={{
-              color: "#ffffff",
-              fontFamily: "Rubik",
-              fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "1.05rem",
-            }}
-          >
-            Vercel
-          </p>
-        </div>
-      </div> */}
-    </div>
-  );
-};
-
-const MyProjects = () => {
-  const [active, setActive] = useState("firstButton");
-  return (
-    <div
-      className="container-fluid px-5 pb-3 pt-5"
-      id="myprojects"
-      style={{ backgroundColor: "#222A35" }}
-    >
-      {" "}
-      <h4 className="text-center text-white">My Projects</h4>
-      <div className="text-center mt-3">
-        <div className="mx-3">
-          <button
-            onClick={() => setActive("firstButton")}
-            className="DevBtn mx-2 mt-3"
-            style={{
-              border: "1px solid #3BAFCA",
-              // backgroundColor: "#1B232E",
-              backgroundColor: "#3BAFCA",
-              borderRadius: "10px",
-              width: "9rem",
-              height: "2.5rem",
-              color: "#000000",
-              fontFamily: "Rubik",
-              fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "1.05rem",
-            }}
-          >
-            Development
-          </button>
-
-          {/* </button> */}
-          <button
-            onClick={() => setActive("secondButton")}
-            className="DesBtn mx-2 mt-3"
-            style={{
-              border: "1px solid #3BAFCA",
-              // backgroundColor: "#1B232E",
-              backgroundColor: "#3BAFCA",
-              borderRadius: "10px",
-              width: "9rem",
-              height: "2.5rem",
-              color: "#000000",
-              fontFamily: "Rubik",
-              fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "1.05rem",
-            }}
-          >
-            Design
-          </button>
-        </div>
-      </div>{" "}
-      <div className="mt-3">
-        {active === "firstButton" && (
-          <h2>
-            {" "}
-            <div className="row justify-content-evenly">
-              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
-                <div className="mb-5 py-4 cardBg">
-                  <div className="">
-                    <img
-                      src={geotrak}
-                      className="img-fluid"
-                      style={{ borderRadius: "10px" }}
-                    />
-                  </div>
-                  <div className="card-body mt-3">
-                    <h5 className="card-title text-white">Geotrak</h5>
-                    <p
-                      className="card-title text-white my-2"
-                      style={{ fontSize: "16px", fontWeight: "200" }}
-                    >
-                      Data collection software supporting location tracking and
-                      media capture
-                    </p>
-                    <div className="d-flex mt-2">
-                      {" "}
-                      <p
-                        className="card-text text-white"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        NextJS
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        NestJS
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        MongoDB
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        Tailwind CSS
-                      </p>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-between mt-3">
-                    <a href="https://www.geotrak.app/" target="_blank">
-                      <p style={{ fontSize: "14px" }}>Project Link</p>
-                    </a>
-                    <a
-                      href="https://github.com/TrulanceHQ/geo-collect-ui"
-                      target="_blank"
-                    >
-                      <p style={{ fontSize: "14px" }}>Frontend GitHub</p>
-                    </a>
-                    <a
-                      href="https://github.com/TrulanceHQ/geo-collect"
-                      target="_blank"
-                    >
-                      <p style={{ fontSize: "14px" }}>Backend GitHub</p>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
-                <div className="mb-5 py-4 cardBg">
-                  <div className="">
-                    <img
-                      src={everythingmeat}
-                      className="img-fluid"
-                      style={{ borderRadius: "10px" }}
-                    />
-                  </div>
-                  <div className="card-body mt-3">
-                    <h5 className="card-title text-white">Everything Meat</h5>
-                    <p
-                      className="card-title text-white my-2"
-                      style={{ fontSize: "16px", fontWeight: "200" }}
-                    >
-                      An e-commerce platform that connects buyers and sellers of
-                      freshly butchered livestock
-                    </p>
-                    <div className="d-flex mt-2">
-                      {" "}
-                      <p
-                        className="card-text text-white"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        NextJS
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        NestJS
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        MongoDB
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        Tailwind CSS
-                      </p>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-between mt-3">
-                    <a
-                      href="https://everythingmeat.vercel.app/"
-                      target="_blank"
-                    >
-                      <p style={{ fontSize: "14px" }}>Project Link</p>
-                    </a>
-                    <a href="#" target="_blank">
-                      <p style={{ fontSize: "14px" }}>Frontend GitHub</p>
-                    </a>
-                    <a href="#" target="_blank">
-                      <p style={{ fontSize: "14px" }}>Backend GitHub</p>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
-                <div className="mb-5 py-4 cardBg">
-                  <div className="">
-                    <img
-                      src={iktm}
-                      className="img-fluid"
-                      style={{ borderRadius: "10px" }}
-                    />
-                  </div>
-                  <div className="card-body mt-3">
-                    <h5 className="card-title text-white">
-                      Ikeja Toastmasters Club
-                    </h5>
-                    <p
-                      className="card-title text-white my-2"
-                      style={{ fontSize: "16px", fontWeight: "200" }}
-                    >
-                      Empowering diverse individuals to become confident
-                      speakers and leaders
-                    </p>
-                    <div className="d-flex mt-2">
-                      {" "}
-                      <p
-                        className="card-text text-white"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        React
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        Tailwind CSS
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        Firebase
-                      </p>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-between mt-3">
-                    <a href="http://ikejatoastmasters.com/" target="_blank">
-                      <p style={{ fontSize: "14px" }}>Project Link</p>
-                    </a>
-                    <a href="#" target="_blank">
-                      <p style={{ fontSize: "14px" }}>Frontend GitHub</p>
-                    </a>
-                    {/* <a
-                      href="https://github.com/opeyemibioku/ikeja-toastmasters-club"
-                      target="_blank"
-                    >
-                      <p style={{ fontSize: "14px" }}>Frontend GitHub</p>
-                    </a> */}
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
-                <div className="mb-5 py-4 cardBg">
-                  <div className="">
-                    <img
-                      src={legalmo}
-                      className="img-fluid"
-                      style={{ borderRadius: "10px" }}
-                    />
-                  </div>
-                  <div className="card-body mt-3">
-                    <h5 className="card-title text-white">LegalMo</h5>
-                    <p
-                      className="card-title text-white my-2"
-                      style={{ fontSize: "16px", fontWeight: "200" }}
-                    >
-                      B2B Legal Services Matching App
-                    </p>
-                    <div className="d-flex mt-2">
-                      {" "}
-                      <p
-                        className="card-text text-white"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        MongoDB
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        Express
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        React
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        Node JS
-                      </p>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-between mt-3">
-                    <a href="https://www.legalmo.biz/" target="_blank">
-                      <p style={{ fontSize: "14px" }}>Project Link</p>
-                    </a>
-                    <a
-                      href="https://github.com/8thGear-Tech/LegalMo"
-                      target="_blank"
-                    >
-                      <p style={{ fontSize: "14px" }}>Frontend GitHub</p>
-                    </a>
-                    <a
-                      href="https://github.com/8thGear-Tech/LegalMoServer"
-                      target="_blank"
-                    >
-                      <p style={{ fontSize: "14px" }}>Backend GitHub</p>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
-                <div className="mb-5 py-4 cardBg">
-                  <div className="">
-                    <img
-                      src={cash2go}
-                      className="img-fluid"
-                      style={{ borderRadius: "10px" }}
-                    />
-                  </div>
-                  <div className="card-body mt-3">
-                    <h5 className="card-title text-white">Cash2go</h5>
-                    <p
-                      className="card-title text-white my-2"
-                      style={{ fontSize: "16px", fontWeight: "200" }}
-                    >
-                      Loan Prediction App
-                    </p>
-                    <div className="d-flex mt-2">
-                      {" "}
-                      <p
-                        className="card-text text-white"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        Node JS
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        Express
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        MongoDB
-                      </p>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-between mt-3">
-                    <a href="https://cash2go.netlify.app/" target="_blank">
-                      <p style={{ fontSize: "14px" }}>Project Link</p>
-                    </a>
-                    <a
-                      href="https://github.com/Cash2go-backend-org/cash2go-backend"
-                      target="_blank"
-                    >
-                      <p style={{ fontSize: "14px" }}>GitHub Link</p>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
-                <div className="mb-5 py-4 cardBg">
-                  <div className="">
-                    <img
-                      src={haven}
-                      className="img-fluid"
-                      style={{ borderRadius: "10px" }}
-                    />
-                  </div>
-                  <div className="card-body mt-3">
-                    <h5 className="card-title text-white">Haven</h5>
-                    <p
-                      className="card-title text-white my-2"
-                      style={{ fontSize: "16px", fontWeight: "200" }}
-                    >
-                      Instructor-School Matching App
-                    </p>
-                    <div className="d-flex mt-2">
-                      {" "}
-                      <p
-                        className="card-text text-white"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        React-bootstrap
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        SASS
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        JavaScript
-                      </p>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-between mt-3">
-                    <a href="https://www.haveneduservices.com/" target="_blank">
-                      <p style={{ fontSize: "14px" }}>Project Link</p>
-                    </a>
-                    <a
-                      href="https://github.com/8thGear-Tech/haven-web-app"
-                      target="_blank"
-                    >
-                      <p style={{ fontSize: "14px" }}>GitHub Link</p>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
-                <div className="mb-5 py-4 cardBg">
-                  <div className="">
-                    <img
-                      src={eightgear}
-                      className="img-fluid"
-                      style={{ borderRadius: "10px" }}
-                    />
-                  </div>
-                  <div className="card-body mt-3">
-                    <h5 className="card-title text-white">8thGear</h5>
-                    <p
-                      className="card-title text-white my-2"
-                      style={{ fontSize: "16px", fontWeight: "200" }}
-                    >
-                      Business Website
-                    </p>
-                    <div className="d-flex mt-2">
-                      {" "}
-                      <p
-                        className="card-text text-white"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        React
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        Bootstrap
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        SASS
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        JavaScript
-                      </p>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-between mt-3">
-                    <a href="https://8thgearpartners.com/" target="_blank">
-                      <p style={{ fontSize: "14px" }}>Project Link</p>
-                    </a>
-                    <a
-                      href="https://github.com/8thGear-Tech/8thGearWebsite"
-                      target="_blank"
-                    >
-                      <p style={{ fontSize: "14px" }}>GitHub Link</p>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
-                <div className="mb-5 py-4 cardBg">
-                  <div className="">
-                    <img
-                      src={mindafrik}
-                      className="img-fluid"
-                      style={{ borderRadius: "10px" }}
-                    />
-                  </div>
-                  <div className="card-body mt-3">
-                    <h5 className="card-title text-white">Mindafrik</h5>
-                    <p
-                      className="card-title text-white my-2"
-                      style={{ fontSize: "16px", fontWeight: "200" }}
-                    >
-                      Virtual Therapy App
-                    </p>
-                    <div className="d-flex mt-2">
-                      {" "}
-                      <p
-                        className="card-text text-white"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        React-bootstrap
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        SASS
-                      </p>
-                      <p
-                        className="card-text text-white ms-3"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        JavaScript
-                      </p>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-between mt-3">
-                    <a href="https://www.mindafrik.com/" target="_blank">
-                      <p style={{ fontSize: "14px" }}>Project Link</p>
-                    </a>
-                    <a
-                      href="https://github.com/8thGear-Tech/MindAfrik"
-                      target="_blank"
-                    >
-                      <p style={{ fontSize: "14px" }}>GitHub Link</p>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </h2>
+        {!isDesign && (
+          <div className="project-links">
+            {project.links.live && (
+              <a href={project.links.live} target="_blank" rel="noopener noreferrer" className="link-live">
+                🔗 Live Site
+              </a>
+            )}
+            {project.links.front && (
+              <a href={project.links.front} target="_blank" rel="noopener noreferrer" className="link-github">
+                <GitHubIcon size={13} /> Frontend
+              </a>
+            )}
+            {project.links.back && (
+              <a href={project.links.back} target="_blank" rel="noopener noreferrer" className="link-github">
+                <GitHubIcon size={13} /> Backend
+              </a>
+            )}
+          </div>
         )}
-        {active === "secondButton" && (
-          <h2>
-            {" "}
-            <div className="row justify-content-center">
-              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
-                <div className="mb-5 py-4 cardBg">
-                  <div className="">
-                    <img
-                      src={freshchow}
-                      className="img-fluid"
-                      style={{ borderRadius: "10px" }}
-                    />
-                  </div>
-                  <div className="card-body mt-3">
-                    <h5 className="card-title text-white">Freshchow</h5>
-                    <p
-                      className="card-title text-white my-2"
-                      style={{ fontSize: "16px", fontWeight: "200" }}
-                    >
-                      Food Delivery App
-                    </p>
-                    <div className="d-flex mt-2">
-                      {" "}
-                      <p
-                        className="card-text text-white"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        Figma
-                      </p>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-between mt-3">
-                    <a
-                      href="https://www.figma.com/proto/LTRLUlKSkWQt4NLdKjkxqd/Fresh-Chow?type=design&node-id=233-903&t=tUAKC6Us4Z74bKAb-0&scaling=scale-down&page-id=3%3A2&starting-point-node-id=233%3A1483"
-                      target="_blank"
-                    >
-                      <p style={{ fontSize: "14px" }}>Design Link</p>
-                    </a>
-                    {/* <a
-                      href="https://github.com/8thGear-Tech/MindAfrik"
-                      target="_blank"
-                    >
-                      <p style={{ fontSize: "14px" }}>GitHub Link</p>
-                    </a> */}
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
-                <div className="mb-5 py-4 cardBg">
-                  <div className="">
-                    <img
-                      src={jolevi}
-                      className="img-fluid"
-                      style={{ borderRadius: "10px" }}
-                    />
-                  </div>
-                  <div className="card-body mt-3">
-                    <h5 className="card-title text-white">Jolevi</h5>
-                    <p
-                      className="card-title text-white my-2"
-                      style={{ fontSize: "16px", fontWeight: "200" }}
-                    >
-                      Freelance Marketplace
-                    </p>
-                    <div className="d-flex mt-2">
-                      {" "}
-                      <p
-                        className="card-text text-white"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        Figma
-                      </p>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-between mt-3">
-                    <a
-                      href="https://www.figma.com/proto/g4zcpr232hab89Yk3h51Ox/Jolevi?type=design&node-id=91-103&t=CwteqslBfHeZO3Sa-0&scaling=scale-down&page-id=1%3A2&starting-point-node-id=1%3A4"
-                      target="_blank"
-                    >
-                      <p style={{ fontSize: "14px" }}>Design Link</p>
-                    </a>
-                    {/* <a
-                      href="https://github.com/8thGear-Tech/MindAfrik"
-                      target="_blank"
-                    >
-                      <p style={{ fontSize: "14px" }}>GitHub Link</p>
-                    </a> */}
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
-                <div className="mb-5 py-4 cardBg">
-                  <div className="">
-                    <img
-                      src={languagehub}
-                      className="img-fluid"
-                      style={{ borderRadius: "10px" }}
-                    />
-                  </div>
-                  <div className="card-body mt-3">
-                    <h5 className="card-title text-white">LanguageHub</h5>
-                    <p
-                      className="card-title text-white my-2"
-                      style={{ fontSize: "16px", fontWeight: "200" }}
-                    >
-                      Language Learning Platform
-                    </p>
-                    <div className="d-flex mt-2">
-                      {" "}
-                      <p
-                        className="card-text text-white"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        Figma
-                      </p>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-between mt-3">
-                    <a
-                      href="https://www.figma.com/proto/jR5miImofMkFRGjqDDVGOn/LanguageHubng?node-id=3-15&scaling=scale-down"
-                      target="_blank"
-                    >
-                      <p style={{ fontSize: "14px" }}>Design Link</p>
-                    </a>
-                    {/* <a
-                      href="https://github.com/8thGear-Tech/MindAfrik"
-                      target="_blank"
-                    >
-                      <p style={{ fontSize: "14px" }}>GitHub Link</p>
-                    </a> */}
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-4 col-sm-10 px-lg-5 px-md-4 px-sm-5 d-flex align-items-stretch">
-                <div className="mb-5 py-4 cardBg">
-                  <div className="">
-                    <img
-                      src={portfolio}
-                      className="img-fluid"
-                      style={{ borderRadius: "10px" }}
-                    />
-                  </div>
-                  <div className="card-body mt-3">
-                    <h5 className="card-title text-white">Porfolio Website</h5>
-                    <p
-                      className="card-title text-white my-2"
-                      style={{ fontSize: "16px", fontWeight: "200" }}
-                    >
-                      Porfolio
-                    </p>
-                    <div className="d-flex mt-2">
-                      {" "}
-                      <p
-                        className="card-text text-white"
-                        style={{
-                          fontSize: "14px",
-                          opacity: ".8",
-                          fontWeight: "200",
-                        }}
-                      >
-                        Figma
-                      </p>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-between mt-3">
-                    <a
-                      href="https://www.figma.com/proto/GvyThbsKeyZxLxXV8coXMG/titiekundayo?type=design&node-id=513-178&t=jPnMJbFVZjOmxlbU-0&scaling=scale-down&page-id=513%3A2&starting-point-node-id=513%3A1165"
-                      target="_blank"
-                    >
-                      <p style={{ fontSize: "14px" }}>Design Link</p>
-                    </a>
-                    {/* <a
-                      href="https://github.com/8thGear-Tech/MindAfrik"
-                      target="_blank"
-                    >
-                      <p style={{ fontSize: "14px" }}>GitHub Link</p>
-                    </a> */}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </h2>
+        {isDesign && project.links.figma && (
+          <div className="project-links">
+            <a href={project.links.figma} target="_blank" rel="noopener noreferrer" className="link-live">
+              <ExternalLink size={13} /> View on Figma
+            </a>
+          </div>
         )}
       </div>
     </div>
   );
 };
 
-const Experience = () => {
-  return (
-    <>
-      <div
-        className="container-fluid py-5 px-3"
-        id="#experience"
-        style={{ backgroundColor: "#1B232E" }}
-      >
-        <div
-          className="row g-0 aboutSection d-flex justify-content-center"
-          id="experience"
-        >
-          <div className="col-lg-4 d-flex justify-content-center">
-            <div className="card-body">
-              <h4 className="card-title text-white">Experience</h4>
-              <p className="card-text experience-header mt-3 text-white ">
-                Ezzyrun, Lagos, Nigeria.
-              </p>
-              <p
-                className="card-text experience-text text-white m-0 p-0"
-                style={{ fontWeight: "200", opacity: ".8", fontSize: "15px" }}
-              >
-                Backend Developer, March 2025 - Present
-              </p>
-              <ul className="list-group list-group-flush experience-sub-text">
-                <li className="ms-5 text-white">
-                  Develop and maintain scalable backend infrastructure for
-                  web/mobile applications using Nest.js and MongoDB.
-                </li>
-                <li className="ms-5 text-white">
-                  Develop and maintain automated tests to ensure code quality.
-                </li>
-                <li className="ms-5 text-white">
-                  Set up and maintain CI/CD pipelines and deployment workflows.
-                </li>
-              </ul>
-              <p className="card-text experience-header mt-3 text-white">
-                8thGear Hub & Venture Studio, Lagos, Nigeria
-              </p>
-              <p
-                className="card-text experience-text text-white m-0 p-0"
-                style={{ fontWeight: "200", opacity: ".8", fontSize: "15px" }}
-              >
-                FullStack Developer, April 2021 - Present
-              </p>
-              <ul className="list-group list-group-flush experience-sub-text">
-                <li className="ms-5 text-white">
-                  Lead end-to-end development of responsive and accessible web
-                  applications with Next.js and Tailwind CSS on the frontend.
-                </li>
-                <li className="ms-5 pt-1 text-white">
-                  Build robust backend services and APIs using Nest.js,
-                  integrating with MongoDB.
-                </li>
-                <li className="ms-5 pt-1 text-white">
-                  Optimize application performance, scalability, and
-                  responsiveness across devices.
-                </li>
-                <li className="ms-5 pt-1 text-white">
-                  Follow Agile methodologies and contribute to sprint planning,
-                  code reviews, and continuous improvement efforts.
-                </li>
-              </ul>
 
-              <p className="card-text experience-header mt-3 text-white ">
-                Stutern, Lagos, Nigeria.
-              </p>
-              <p
-                className="card-text experience-text text-white m-0 p-0"
-                style={{ fontWeight: "200", opacity: ".8", fontSize: "15px" }}
-              >
-                Backend Developer, February 2023 - January 2024
-              </p>
-              <ul className="list-group list-group-flush experience-sub-text">
-                <li className="ms-5 text-white">
-                  Develop and maintain scalable backend infrastructure for web
-                  applications using Node.js, Express, and MongoDB.
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="col-lg-1 d-flex justify-content-center">
-            <div
-              className="vertical-line d-lg-block d-md-block d-sm-none"
-              style={{ borderLeft: "1px solid #fff", height: "100%" }}
-            ></div>
-          </div>
-          <div className="col-lg-4 d-flex justify-content-center">
-            <div className="card-body">
-              <h4 className="card-title experience-text text-white">
-                Education
-              </h4>
-              <p className="card-text experience-header mt-3 text-white"></p>
-              <ul className="list-group list-group-flush experience-sub-text">
-                <li className="ms-5 text-white ">
-                  {" "}
-                  G3Women x Women Techmakers
-                  <ul>
-                    <li
-                      style={{
-                        fontWeight: "200",
-                        opacity: ".8",
-                        fontSize: "15px",
-                      }}
-                    >
-                      DevOps Fundamentals, Nov 2024
-                    </li>
-                  </ul>
-                </li>
-                <li className="ms-5 text-white mt-3">
-                  {" "}
-                  Stutern Graduate Accelerator
-                  <ul>
-                    <li
-                      style={{
-                        fontWeight: "200",
-                        opacity: ".8",
-                        fontSize: "15px",
-                      }}
-                    >
-                      Backend Development, Feb 2023 – July 2023
-                    </li>
-                  </ul>
-                </li>
-                <li className="ms-5 text-white mt-3">
-                  {" "}
-                  Innkeeper Talent Accelerator
-                  <ul>
-                    <li
-                      style={{
-                        fontWeight: "200",
-                        opacity: ".8",
-                        fontSize: "15px",
-                      }}
-                    >
-                      Frontend Development, Dec 2021 – Feb 2022
-                    </li>
-                  </ul>
-                </li>
-                <li className="ms-5 text-white mt-3">
-                  {" "}
-                  Ladoke Akintola University of Technology
-                  <ul>
-                    <li
-                      style={{
-                        fontWeight: "200",
-                        opacity: ".8",
-                        fontSize: "15px",
-                      }}
-                    >
-                      Bachelor of Technology (Hons.) Science Laboratory
-                      Technology Sep 2013 – Dec 2018
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="d-flex justify-content-between mt-5 pt-3 px-5">
-          {" "}
-          <div>
-            <a
-              href="mailto:opeyemibioku@gmail.com"
-              style={{ color: "#3BAFCA" }}
-            >
-              opeyemibioku@gmail.com
-            </a>
-          </div>
-          <div className="">
-            <a href="https://github.com/opeyemibioku">
-              <i className="bi bi-github text-light mx-2" target="_blank"></i>
-            </a>
 
-            <a href="https://www.linkedin.com/in/opeyemi-bioku" target="_blank">
-              <i className="bi bi-linkedin text-light mx-2"></i>
-            </a>
-            <a href="">
-              <i
-                className="bi bi-instagram text-light mx-2"
-                target="_blank"
-              ></i>
-            </a>
-          </div>
-        </div>
+const ContactSection = () => (
+  <section className="contact" id="contact">
+    <div className="container">
+      <h2>Let's Work Together</h2>
+      <p className="contact-text">
+        Got a product to build, a problem to solve, or a team that needs a reliable engineer? I'm open to new projects, full-time roles, and meaningful collaborations.
+      </p>
+      <div className="contact-links">
+        <a href="mailto:opeyemibioku@gmail.com">
+          <Mail size={20} /> <span>opeyemibioku@gmail.com</span>
+        </a>
+        <a href="https://github.com/opeyemibioku" target="_blank" rel="noopener noreferrer">
+          <GitHubIcon size={20} /> <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/opeyemi-bioku" target="_blank" rel="noopener noreferrer">
+          <LinkedInIcon size={20} /> <span>LinkedIn</span>
+        </a>
       </div>
-    </>
-  );
-};
-const Footer = () => {
-  return (
-    <>
-      <div
-        className="container-fluid pt-5 px-5"
-        style={{ backgroundColor: "#222A35" }}
-        // style={{ backgroundColor: "#1B232E" }}
-      >
-        <div className="d-flex justify-content-between">
-          {" "}
-          <div>
-            <a
-              href="mailto:opeyemibioku@gmail.com"
-              style={{ color: "#3BAFCA" }}
-            >
-              opeyemibioku@gmail.com
-            </a>
-          </div>
-          <div className="">
-            <a href="https://github.com/opeyemibioku">
-              <i className="bi bi-github text-light mx-2" target="_blank"></i>
-            </a>
+    </div>
+  </section>
+);
 
-            <a href="https://www.linkedin.com/in/opeyemi-bioku" target="_blank">
-              <i className="bi bi-linkedin text-light mx-2"></i>
-            </a>
-            <a href="">
-              <i
-                className="bi bi-instagram text-light mx-2"
-                target="_blank"
-              ></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </>
+const Footer = () => (
+  <footer className="portfolio-footer">
+    <p>© 2026 Opeyemi Bioku. All rights reserved.</p>
+  </footer>
+);
+
+export const Home = () => {
+  const [activeTab, setActiveTab] = useState('dev');
+
+  return (
+    <div>
+      <Navigation />
+      {/* HERO: swap HeroB ↔ HeroC to switch layouts */}
+      {/* <HeroB /> */}
+      <HeroC />
+      <AboutSection />
+      <ProjectsSection activeTab={activeTab} setActiveTab={setActiveTab} />
+      <ContactSection />
+      <Footer />
+    </div>
   );
 };
 
