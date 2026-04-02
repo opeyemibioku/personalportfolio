@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown, Mail, ExternalLink, Code2, Palette } from 'lucide-react';
+import { Mail, ExternalLink, Code2, Palette } from 'lucide-react';
 import '../sassfiles/pages/_home.scss';
 
 
