@@ -199,7 +199,7 @@ const HeroC = () => (
       </div>
       {/* <div className="hero-c-status">Available for new projects</div> */}
       <h1 className="hero-title">
-        Fullstack Developer<br />
+        Product Manager<br />
         <span className="hero-highlight">Building Digital Solutions</span>
       </h1>
       {/* <div className="hero-c-tags">
@@ -208,7 +208,7 @@ const HeroC = () => (
         <span>UI/UX Design</span>
       </div> */}
       <p className="hero-subtitle">
-        I design and build web applications that solve real problems. From backend infrastructure to frontend experiences, I create products that matter.
+        I lead products from concept to market through strategy and execution. 4+ shipped products across venture studios and SaaS startups.
       </p>
       <div className="hero-cta">
         <a href="#work"><button className="btn-primary">View My Work</button></a>
@@ -228,41 +228,32 @@ const AboutSection = () => (
       <div className="about-text">
         <h2>About Me</h2>
         <p>
-          I'm Opeyemi Bioku, a fullstack developer with a passion for creating seamless digital experiences. With expertise spanning from NestJS and Node.js backends to Next.js and React frontends, I've helped companies and startups bring their ideas to life.
+        I'm Opeyemi Bioku, a Product Manager who builds products people actually use.
         </p>
         <p>
-          I specialize in building scalable architectures, optimizing performance, and crafting responsive interfaces.
+        Over 4 years leading end-to-end product strategy across venture studios and SaaS platforms, from discovery and roadmapping through launch and scaling. I specialize in translating customer problems into clear strategy, unblocking cross-functional teams, and shipping features that drive growth.
+        </p>
+        <p>
+          I thrive in fast-moving environments: venture studios, early-stage startups, and SaaS scaling from product-market fit to growth.
         </p>
       </div>
       <div className="skills-flat">
         <div className="skills-category">
-          <span className="skills-label">Languages</span>
+          <span className="skills-label">PRODUCT STRATEGY</span>
           <div className="skills-tags">
-            {['JavaScript (ES6+)', 'TypeScript'].map(s => <span key={s}>{s}</span>)}
+            {['End-to-End Product Roadmapping', 'PRD & Requirements Development', 'User Journey Mapping', 'Agile Methodologies'].map(s => <span key={s}>{s}</span>)}
           </div>
         </div>
         <div className="skills-category">
-          <span className="skills-label">Frontend</span>
+          <span className="skills-label">CROSS-FUNCTIONAL LEADERSHIP</span>
           <div className="skills-tags">
-            {['Next.js', 'React.js', 'Redux', 'TailwindCSS', 'HTML5', 'CSS3', 'SASS', 'Bootstrap', 'Figma'].map(s => <span key={s}>{s}</span>)}
+            {['Stakeholder Coordination', 'Engineering & Design Alignment', 'Customer Discovery & Feedback Analysis', 'Delivery & Sprint Planning'].map(s => <span key={s}>{s}</span>)}
           </div>
         </div>
         <div className="skills-category">
-          <span className="skills-label">Backend</span>
+          <span className="skills-label">PRODUCT TOOLS</span>
           <div className="skills-tags">
-            {['Node.js', 'Nest.js', 'Express.js'].map(s => <span key={s}>{s}</span>)}
-          </div>
-        </div>
-        <div className="skills-category">
-          <span className="skills-label">Databases</span>
-          <div className="skills-tags">
-            {['MongoDB', 'MySQL'].map(s => <span key={s}>{s}</span>)}
-          </div>
-        </div>
-        <div className="skills-category">
-          <span className="skills-label">Tools & Cloud</span>
-          <div className="skills-tags">
-            {['Git', 'GitHub', 'Bitbucket', 'Postman', 'Swagger', 'AWS Amplify', 'Render', 'Cloudinary'].map(s => <span key={s}>{s}</span>)}
+            {['Jira · Notion · ClickUp · Trello', 'Figma (Design collaboration)', 'Zoho CRM · Zoho SalesIQ · Zoho Desk'].map(s => <span key={s}>{s}</span>)}
           </div>
         </div>
       </div>
@@ -373,9 +364,9 @@ const ContactSection = () => (
         <a href="mailto:opeyemibioku@gmail.com">
           <Mail size={20} /> <span>opeyemibioku@gmail.com</span>
         </a>
-        <a href="https://github.com/opeyemibioku" target="_blank" rel="noopener noreferrer">
+        {/* <a href="https://github.com/opeyemibioku" target="_blank" rel="noopener noreferrer">
           <GitHubIcon size={20} /> <span>GitHub</span>
-        </a>
+        </a> */}
         <a href="https://www.linkedin.com/in/opeyemi-bioku" target="_blank" rel="noopener noreferrer">
           <LinkedInIcon size={20} /> <span>LinkedIn</span>
         </a>
