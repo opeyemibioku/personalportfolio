@@ -200,7 +200,7 @@ const HeroC = () => (
       {/* <div className="hero-c-status">Available for new projects</div> */}
       <h1 className="hero-title">
         Product Manager<br />
-        <span className="hero-highlight">Building Digital Solutions</span>
+        <span className="hero-highlight">Building Products That Scale</span>
       </h1>
       {/* <div className="hero-c-tags">
         <span>NestJS · Next.js</span>
